@@ -43,7 +43,7 @@ export default function Home() {
             letterSpacing: '-1px'
           }}
         >
-          I turn user interactions <br /> into meaningful experiences
+          I turn complex logic <br /> into robust software
         </motion.h1>
 
         <motion.p
