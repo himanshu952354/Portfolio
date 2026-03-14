@@ -36,11 +36,11 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           style={{
-            fontSize: 'clamp(3rem, 7vw, 6rem)',
-            lineHeight: 1.1,
+            fontSize: 'clamp(2.5rem, 6vw, 5rem)',
+            lineHeight: 1.2,
             marginBottom: '1.5rem',
             fontWeight: 500,
-            letterSpacing: '-1px'
+            letterSpacing: '-2px'
           }}
         >
           I turn user interactions <br /> into meaningful experiences
