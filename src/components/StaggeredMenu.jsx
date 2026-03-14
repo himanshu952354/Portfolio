@@ -1,6 +1,7 @@
 import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
-import { Link } from 'react-scroll'; // Added to support smooth scroll
+import { Link } from 'react-scroll';
+import { Link as RouterLink } from 'react-router-dom';
 import './StaggeredMenu.css';
 
 export const StaggeredMenu = ({
@@ -11,7 +12,8 @@ export const StaggeredMenu = ({
   displaySocials = true,
   displayItemNumbering = true,
   className,
-  logoUrl = '/src/assets/logos/reactbits-gh-white.svg', // Changed if required but no need since we won't use the logo part
+  logoUrl = '/src/assets/logos/reactbits-gh-white.svg',
+  isRouterLink = false,
   menuButtonColor = '#fff',
   openMenuButtonColor = '#fff',
   accentColor = '#5227FF',
@@ -366,7 +368,7 @@ export const StaggeredMenu = ({
           return arr.map((c, i) => <div key={i} className="sm-prelayer" style={{ background: c }} />);
         })()}
       </div>
-      <header className="staggered-menu-header" aria-label="Main navigation header" style={{position: 'unset', padding: 0}}>
+      <header className="staggered-menu-header" aria-label="Main navigation header" style={{ position: 'unset', padding: 0 }}>
         {/*
         <div className="sm-logo" aria-label="Logo">
           {logoUrl && (
@@ -415,22 +417,36 @@ export const StaggeredMenu = ({
             {items && items.length ? (
               items.map((it, idx) => (
                 <li className="sm-panel-itemWrap" key={it.label + idx}>
-                   {/* Changed <a> to <Link> for smooth scrolling */}
-                  <Link 
-                    className="sm-panel-item" 
-                    to={it.link} 
-                    spy={true}
-                    smooth={true}
-                    offset={-70}
-                    duration={500}
-                    aria-label={it.ariaLabel} 
-                    data-index={idx + 1}
-                    onClick={() => {
+                  {/* Changed <a> to <Link> for smooth scrolling */}
+                  {isRouterLink ? (
+                    <RouterLink
+                      className="sm-panel-item"
+                      to={it.link}
+                      aria-label={it.ariaLabel}
+                      data-index={idx + 1}
+                      onClick={() => {
+                        closeMenu();
+                      }}
+                    >
+                      <span className="sm-panel-itemLabel">{it.label}</span>
+                    </RouterLink>
+                  ) : (
+                    <Link
+                      className="sm-panel-item"
+                      to={it.link}
+                      spy={true}
+                      smooth={true}
+                      offset={-70}
+                      duration={500}
+                      aria-label={it.ariaLabel}
+                      data-index={idx + 1}
+                      onClick={() => {
                         closeMenu(); // Close immediately on click
-                    }}
-                  >
-                    <span className="sm-panel-itemLabel">{it.label}</span>
-                  </Link>
+                      }}
+                    >
+                      <span className="sm-panel-itemLabel">{it.label}</span>
+                    </Link>
+                  )}
                 </li>
               ))
             ) : (

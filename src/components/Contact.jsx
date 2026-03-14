@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export default function Contact() {
   return (
-    <section id="contact" style={{ 
+    <section id="contact" style={{
       padding: '4rem var(--spacing-x) 10rem var(--spacing-x)',
       backgroundColor: 'var(--bg-color)'
     }}>

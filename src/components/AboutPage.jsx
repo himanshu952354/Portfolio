@@ -1,0 +1,212 @@
+import { motion } from 'framer-motion';
+import { FiArrowUpRight, FiArrowRight } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
+
+const fadeIn = {
+  initial: { opacity: 0, y: 40 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+};
+
+const staggerContainer = {
+  animate: { transition: { staggerChildren: 0.1 } }
+};
+
+export default function AboutPage() {
+  const navigate = useNavigate();
+
+  return (
+    <div style={{
+      backgroundColor: 'var(--bg-color)',
+      color: 'var(--text-primary)',
+      minHeight: '100vh',
+      padding: '0 0 10rem 0',
+      fontFamily: "'Inter', sans-serif"
+    }}>
+      {/* Intro Hero with Watermark */}
+      <section style={{ 
+        position: 'relative', 
+        padding: '12rem var(--spacing-x) 4rem var(--spacing-x)',
+        overflow: 'hidden'
+      }}>
+        <motion.h1 
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 0.03, x: 0 }}
+          transition={{ duration: 1.5, ease: 'easeOut' }}
+          style={{
+            position: 'absolute',
+            top: '5rem',
+            left: '2rem',
+            fontSize: 'clamp(8rem, 25vw, 20rem)',
+            fontWeight: 800,
+            margin: 0,
+            whiteSpace: 'nowrap',
+            zIndex: 0,
+            pointerEvents: 'none'
+          }}
+        >
+          ABOUT
+        </motion.h1>
+
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: '1000px' }}>
+          <motion.h2 
+            {...fadeIn}
+            style={{
+              fontSize: 'clamp(2.5rem, 6vw, 5.5rem)',
+              lineHeight: 1,
+              fontWeight: 500,
+              letterSpacing: '-0.04em',
+              marginBottom: '0.8rem',
+              margin: 0
+            }}
+          >
+            Himanshu Shekhar
+          </motion.h2>
+          <motion.p 
+            {...fadeIn}
+            transition={{ delay: 0.1 }}
+            style={{
+              fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)',
+              lineHeight: 1.4,
+              fontWeight: 400,
+              color: 'var(--text-secondary)',
+              maxWidth: '800px',
+              marginBottom: '2.5rem'
+            }}
+          >
+            Full Stack Developer from India. I craft high-performance digital products with a focus on clean architecture and minimal design.
+          </motion.p>
+
+          <motion.div {...fadeIn} transition={{ delay: 0.2 }}>
+            <h2 style={{ fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '2rem', color: 'var(--text-muted)' }}>Services</h2>
+            <ul style={{ fontSize: '1.2rem', display: 'flex', flexWrap: 'wrap', gap: '2rem', padding: 0 }}>
+              {['Web Development', 'UI/UX Design', 'Backend Engineering', 'Problem Solving'].map((s) => (
+                <li key={s} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#000' }}></span>
+                  {s}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        </div>
+      </section>
+
+
+      {/* Tech & Tools Grid */}
+      <section style={{ padding: '4rem var(--spacing-x) 8rem var(--spacing-x)' }}>
+        <h2 style={{ 
+          fontSize: 'clamp(2.5rem, 6vw, 5.5rem)', 
+          fontWeight: 400, 
+          marginBottom: '5rem', 
+          letterSpacing: '-0.04em' 
+        }}>Tech & Tools</h2>
+        <div className="tech-grid" style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(5, 1fr)', 
+          gap: '4rem 2rem',
+          maxWidth: '1200px'
+        }}>
+          {[
+            'HTML', 'CSS, SASS', 'Bootstrap', 'Tailwind', 'JS, ES6',
+            'Typescript', 'React js', 'Next js', 'Astro', 'React Query',
+            'SWR', 'Styled Components', 'Git', 'Framer Motion', 'GSAP',
+            'Figma', 'Adobe XD', 'Illustrator'
+          ].map((tool) => (
+            <div key={tool} style={{ 
+              fontSize: '1.2rem', 
+              color: 'var(--text-secondary)',
+              fontWeight: 400
+            }}>
+              {tool}
+            </div>
+          ))}
+        </div>
+        
+        {/* Mobile alternative for the grid if needed */}
+        <style dangerouslySetInnerHTML={{ __html: `
+          @media (max-width: 1024px) {
+            .tech-grid { grid-template-columns: repeat(3, 1fr) !important; }
+          }
+          @media (max-width: 640px) {
+            .tech-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          }
+        `}} />
+      </section>
+
+      {/* Inspirations - 2 Col Grid */}
+      <section style={{ padding: '8rem var(--spacing-x)' }}>
+        <h2 style={{ fontSize: '2.5rem', fontWeight: 400, marginBottom: '4rem', letterSpacing: '-0.02em' }}>Heroes & Gurus</h2>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+          gap: '2px',
+          backgroundColor: 'rgba(0,0,0,0.05)',
+          border: '1px solid rgba(0,0,0,0.05)'
+        }}>
+          {[
+            { name: 'Mentors', role: 'Career Guidance', link: 'View Channel' },
+            { name: 'Open Source', role: 'Contribution', link: 'Explore' },
+            { name: 'UI Patterns', role: 'Inspiration', link: 'Browse' },
+            { name: 'Clean Code', role: 'Principles', link: 'Read More' }
+          ].map((guru, idx) => (
+            <motion.div 
+              key={idx}
+              whileHover={{ backgroundColor: '#fff' }}
+              style={{
+                backgroundColor: 'var(--bg-color)',
+                padding: '3rem',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                transition: 'background-color 0.3s ease'
+              }}
+            >
+              <div>
+                <h3 style={{ fontSize: '1.5rem', fontWeight: 500, margin: 0 }}>{guru.name}</h3>
+                <p style={{ color: 'var(--text-muted)', margin: '0.5rem 0 2rem 0' }}>{guru.role}</p>
+              </div>
+              <a href="#" style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '0.5rem', 
+                fontSize: '0.9rem', 
+                fontWeight: 600,
+                color: '#000',
+                textDecoration: 'underline'
+              }}>
+                {guru.link} <FiArrowRight />
+              </a>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Footer CTA */}
+      <section style={{ 
+        padding: '10rem var(--spacing-x) 5rem var(--spacing-x)', 
+        textAlign: 'center',
+        borderTop: '0.5px solid rgba(0,0,0,0.1)',
+        marginTop: '5rem'
+      }}>
+        <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', marginBottom: '1.5rem' }}>Want to start a project?</p>
+        <motion.a 
+          href="mailto:hello@himanshushekhar.com"
+          whileHover={{ scale: 1.05 }}
+          style={{ 
+            fontSize: 'clamp(2rem, 8vw, 6rem)', 
+            fontWeight: 800, 
+            textDecoration: 'none', 
+            color: '#000',
+            letterSpacing: '-0.04em'
+          }}
+        >
+          Say Hi.
+        </motion.a>
+        <div style={{ marginTop: '5rem', display: 'flex', justifyContent: 'center', gap: '3rem' }}>
+          {['LinkedIn', 'GitHub', 'Twitter'].map(social => (
+            <a key={social} href="#" style={{ fontWeight: 600, color: 'var(--text-muted)' }}>{social}</a>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}

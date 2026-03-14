@@ -23,10 +23,10 @@ const projectsData = [
     github: "#",
     live: "#",
     images: [
-       "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=800&q=80",
-       "https://images.unsplash.com/photo-1523474253046-2cd2c78b68ec?auto=format&fit=crop&w=800&q=80",
-       "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
-       "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1523474253046-2cd2c78b68ec?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=800&q=80"
     ]
   },
   {
@@ -99,8 +99,8 @@ const MasonryGrid = ({ images }) => {
 
 export default function Projects() {
   return (
-    <section id="projects" style={{ 
-      position: 'relative', 
+    <section id="projects" style={{
+      position: 'relative',
       padding: '0',
       color: '#000'
     }}>
@@ -144,10 +144,10 @@ export default function Projects() {
               }}
             >
               {/* Left Column: Heading & Explore */}
-              <div style={{ 
-                flex: 1, 
-                display: 'flex', 
-                flexDirection: 'column', 
+              <div style={{
+                flex: 1,
+                display: 'flex',
+                flexDirection: 'column',
                 justifyContent: 'center',
                 minWidth: '300px',
                 alignItems: 'flex-start'

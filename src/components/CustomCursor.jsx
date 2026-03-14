@@ -33,13 +33,13 @@ export default function CustomCursor({ isHoveringRing }) {
   // Hide the default cursor when this component is active
   useEffect(() => {
     document.body.style.cursor = 'none';
-    
+
     // Select all interactive elements
     const styleLinksAndButtons = () => {
-        const interactiveElements = document.querySelectorAll('a, button, input, textarea, [role="button"]');
-        interactiveElements.forEach(el => {
-            el.style.cursor = 'none';
-        });
+      const interactiveElements = document.querySelectorAll('a, button, input, textarea, [role="button"]');
+      interactiveElements.forEach(el => {
+        el.style.cursor = 'none';
+      });
     }
 
     styleLinksAndButtons();
@@ -51,7 +51,7 @@ export default function CustomCursor({ isHoveringRing }) {
       clearTimeout(timeout);
       const interactiveElements = document.querySelectorAll('a, button, input, textarea, [role="button"]');
       interactiveElements.forEach(el => {
-          el.style.cursor = 'auto';
+        el.style.cursor = 'auto';
       });
     };
   }, []);

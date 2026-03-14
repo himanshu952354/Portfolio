@@ -68,28 +68,33 @@ const ProjectItem = ({ title, link }) => {
       }}>
         {title}
       </h3>
-      
-      <div style={{
-        width: '50px',
-        height: '50px',
-        borderRadius: '50%',
-        backgroundColor: '#000',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        transition: 'transform 0.3s ease'
-      }}>
-        <FiArrowUpRight style={{ color: '#fff', fontSize: '1.5rem' }} />
-      </div>
+
+      <motion.div 
+        whileHover={{ scale: 1.1, backgroundColor: '#000', color: '#fff' }}
+        style={{
+          width: '50px',
+          height: '50px',
+          borderRadius: '50%',
+          border: '1px solid #000',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontSize: '1.2rem',
+          transition: 'background-color 0.3s ease',
+          color: '#000'
+        }}
+      >
+        <FiArrowUpRight />
+      </motion.div>
     </motion.a>
   );
 };
 
 export default function MoreProjects() {
   return (
-    <section id="more-projects" style={{ 
+    <section id="more-projects" style={{
       padding: '10rem var(--spacing-x) 0 var(--spacing-x)',
-      backgroundColor: 'var(--bg-color)' 
+      backgroundColor: 'var(--bg-color)'
     }}>
       <motion.h2
         initial={{ opacity: 0, y: 30 }}

@@ -1,37 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 :root {
   /* Dark Theme / Minimalist Creme Theme */
-  --bg-color: #f5f2ed;
-  --bg-color-rgb: 245, 242, 237;
+  --bg-color: #f9f2ed;
+  --bg-color-rgb: 249, 242, 237;
 
-  --surface-1: #f8fafc;
-  --surface-2: #f1f5f9;
+  --surface-1: #ffffff;
+  --surface-2: #f3f4f6;
 
-  --primary: #4f46e5;
-  --primary-glow: rgba(79, 70, 229, 0.3);
-  --secondary: #7c3aed;
-  --accent: #db2777;
+  --primary: #000000;
+  --primary-glow: rgba(0, 0, 0, 0.1);
+  --secondary: #1a1a1a;
+  --accent: #000000;
 
-  --text-primary: #0f172a;
-  --text-secondary: #334155;
-  --text-muted: #64748b;
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --text-muted: #666666;
 
   /* Gradients */
-  --gradient-text: linear-gradient(to right, var(--primary), var(--secondary), var(--accent));
-  --gradient-bg: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+  --gradient-text: linear-gradient(to right, #000000, #333333);
+  --gradient-bg: linear-gradient(135deg, #f9f2ed 0%, #fcf9f7 100%);
 
   /* Utilities */
-  --glass-bg: rgba(255, 255, 255, 0.6);
-  --glass-border: rgba(255, 255, 255, 0.8);
-  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  --glass-bg: rgba(255, 255, 255, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
 
-  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  --spacing-x: 8%;
-  --section-padding: 8rem var(--spacing-x);
+  --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  --spacing-x: 10%;
+  --section-padding: 10rem var(--spacing-x);
   
-  --bg-creme: #f5f2ed;
-  --bg-pattern: radial-gradient(circle at 15% 50%, rgba(79, 70, 229, 0.05) 0%, transparent 50%), radial-gradient(circle at 85% 30%, rgba(219, 39, 119, 0.05) 0%, transparent 50%);
+  --bg-creme: #f9f2ed;
 }
 
 * {
@@ -41,7 +40,7 @@
 }
 
 html {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Inter', 'Outfit', sans-serif;
   scroll-behavior: smooth;
   color: var(--text-primary);
   background-color: var(--bg-color);

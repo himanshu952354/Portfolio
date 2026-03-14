@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-scroll';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
   return (
-    <section id="home" style={{ 
-      position: 'relative', 
-      overflow: 'visible', 
-      padding: '10rem var(--spacing-x) 2rem var(--spacing-x)', 
+    <section id="home" style={{
+      position: 'relative',
+      overflow: 'visible',
+      padding: '10rem var(--spacing-x) 2rem var(--spacing-x)',
       zIndex: 1,
       minHeight: '100vh',
       display: 'flex',
@@ -60,7 +60,7 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <Link to="about" smooth={true} offset={-70} duration={500}>
+          <Link to="/about">
             <button style={{
               padding: '1rem 2.5rem',
               borderRadius: '4px',
