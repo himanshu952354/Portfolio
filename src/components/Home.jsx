@@ -1,7 +1,12 @@
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <section id="home" style={{
       position: 'relative',
@@ -87,27 +92,29 @@ export default function Home() {
           transition={{ duration: 1, delay: 1.5 }}
           style={{ marginTop: '2.5rem', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '0.5rem' }}
         >
-          <div style={{
-            width: '24px',
-            height: '40px',
-            border: '2px solid var(--text-secondary)',
-            borderRadius: '12px',
-            position: 'relative',
-            display: 'flex',
-            justifyContent: 'center',
-            paddingTop: '6px'
-          }}>
-            <motion.div
-              animate={{ y: [0, 12, 0] }}
-              transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-              style={{
-                width: '4px',
-                height: '8px',
-                backgroundColor: 'var(--text-secondary)',
-                borderRadius: '2px'
-              }}
-            />
-          </div>
+          <Link to="/#projects" style={{ cursor: 'pointer', display: 'block' }}>
+            <div style={{
+              width: '24px',
+              height: '40px',
+              border: '2px solid var(--text-secondary)',
+              borderRadius: '12px',
+              position: 'relative',
+              display: 'flex',
+              justifyContent: 'center',
+              paddingTop: '6px'
+            }}>
+              <motion.div
+                animate={{ y: [0, 12, 0] }}
+                transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                style={{
+                  width: '4px',
+                  height: '8px',
+                  backgroundColor: 'var(--text-secondary)',
+                  borderRadius: '2px'
+                }}
+              />
+            </div>
+          </Link>
         </motion.div>
       </div>
 

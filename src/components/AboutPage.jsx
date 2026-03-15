@@ -1,18 +1,40 @@
 import { motion } from 'framer-motion';
-import { FiArrowUpRight, FiArrowRight } from 'react-icons/fi';
+import { FiArrowUpRight, FiArrowRight, FiPenTool, FiGrid } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
+import { 
+  SiHtml5, SiCss, SiSass, SiBootstrap, SiTailwindcss, SiJavascript, 
+  SiTypescript, SiReact, SiNextdotjs, SiAstro, SiReactquery, 
+  SiSwr, SiStyledcomponents, SiGit, SiGreensock, SiFigma, SiFramer 
+} from 'react-icons/si';
 
 const fadeIn = {
   initial: { opacity: 0, y: 40 },
   animate: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
 };
 
-const staggerContainer = {
-  animate: { transition: { staggerChildren: 0.1 } }
-};
-
 export default function AboutPage() {
   const navigate = useNavigate();
+
+  const techStack = [
+    { name: 'HTML', icon: <SiHtml5 /> },
+    { name: 'CSS, SASS', icon: <div style={{ display: 'flex', gap: '4px' }}><SiCss /><SiSass /></div> },
+    { name: 'Bootstrap', icon: <SiBootstrap /> },
+    { name: 'Tailwind', icon: <SiTailwindcss /> },
+    { name: 'JS, ES6', icon: <SiJavascript /> },
+    { name: 'Typescript', icon: <SiTypescript /> },
+    { name: 'React js', icon: <SiReact /> },
+    { name: 'Next js', icon: <SiNextdotjs /> },
+    { name: 'Astro', icon: <SiAstro /> },
+    { name: 'React Query', icon: <SiReactquery /> },
+    { name: 'SWR', icon: <SiSwr /> },
+    { name: 'Styled Components', icon: <SiStyledcomponents /> },
+    { name: 'Git', icon: <SiGit /> },
+    { name: 'Framer Motion', icon: <SiFramer /> },
+    { name: 'GSAP', icon: <SiGreensock /> },
+    { name: 'Figma', icon: <SiFigma /> },
+    { name: 'Adobe XD', icon: <FiGrid /> },
+    { name: 'Illustrator', icon: <FiPenTool /> }
+  ];
 
   return (
     <div style={{
@@ -90,7 +112,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-
       {/* Tech & Tools Grid */}
       <section style={{ padding: '4rem var(--spacing-x) 8rem var(--spacing-x)' }}>
         <h2 style={{ 
@@ -105,18 +126,17 @@ export default function AboutPage() {
           gap: '4rem 2rem',
           maxWidth: '1200px'
         }}>
-          {[
-            'HTML', 'CSS, SASS', 'Bootstrap', 'Tailwind', 'JS, ES6',
-            'Typescript', 'React js', 'Next js', 'Astro', 'React Query',
-            'SWR', 'Styled Components', 'Git', 'Framer Motion', 'GSAP',
-            'Figma', 'Adobe XD', 'Illustrator'
-          ].map((tool) => (
-            <div key={tool} style={{ 
+          {techStack.map((tool) => (
+            <div key={tool.name} style={{ 
               fontSize: '1.2rem', 
               color: 'var(--text-secondary)',
-              fontWeight: 400
+              fontWeight: 400,
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.8rem'
             }}>
-              {tool}
+              <div style={{ fontSize: '1.8rem', color: '#000' }}>{tool.icon}</div>
+              <span>{tool.name}</span>
             </div>
           ))}
         </div>

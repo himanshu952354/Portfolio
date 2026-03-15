@@ -93,8 +93,8 @@ export default function Navbar({ setIsHoveringRing }) {
         {/* Desktop Links (Optional, if you want them visible) */}
         <div style={{ display: 'none', gap: '2rem' /* Hidden on mobile by default in your design probably */ }}>
           {navLinks.map((link) => (
-            <Link 
-              key={link.path} 
+            <Link
+              key={link.path}
               to={link.path}
               style={{
                 textDecoration: 'none',

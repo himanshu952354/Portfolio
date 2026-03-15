@@ -1,7 +1,7 @@
 import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { Link } from 'react-scroll';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import './StaggeredMenu.css';
 
 export const StaggeredMenu = ({
@@ -23,6 +23,7 @@ export const StaggeredMenu = ({
   onMenuOpen,
   onMenuClose
 }) => {
+  const location = useLocation();
   const [open, setOpen] = useState(false);
   const openRef = useRef(false);
   const panelRef = useRef(null);
@@ -426,6 +427,19 @@ export const StaggeredMenu = ({
                       data-index={idx + 1}
                       onClick={() => {
                         closeMenu();
+                        if (it.link === '/' && location.pathname === '/') {
+                          setTimeout(() => {
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                          }, 150);
+                        } else if (it.link.startsWith('/#') && location.pathname === '/') {
+                          const id = it.link.replace('/#', '');
+                          const element = document.getElementById(id);
+                          if (element) {
+                            setTimeout(() => {
+                              element.scrollIntoView({ behavior: 'smooth' });
+                            }, 50);
+                          }
+                        }
                       }}
                     >
                       <span className="sm-panel-itemLabel">{it.label}</span>

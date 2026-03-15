@@ -170,3 +170,27 @@ section {
 .more-project-item:hover h3 {
   font-weight: 700 !important;
 }
+
+/* Explore Button Pulse Animation */
+.explore-pulse-btn {
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease !important;
+}
+
+.explore-pulse-btn:hover {
+  background-color: #000 !important;
+  color: #fff !important;
+  transform: scale(1.1);
+  animation: explore-ring-pulse 0.8s infinite ease-out;
+}
+
+@keyframes explore-ring-pulse {
+  0% {
+    box-shadow: 0 0 0 0px #000;
+  }
+  20% {
+    box-shadow: 0 0 0 3px #000;
+  }
+  100% {
+    box-shadow: 0 0 0 18px rgba(0, 0, 0, 0);
+  }
+}

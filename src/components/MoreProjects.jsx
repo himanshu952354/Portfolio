@@ -69,7 +69,7 @@ const ProjectItem = ({ title, link }) => {
         {title}
       </h3>
 
-      <motion.div 
+      <motion.div
         whileHover={{ scale: 1.1, backgroundColor: '#000', color: '#fff' }}
         style={{
           width: '50px',

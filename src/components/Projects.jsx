@@ -49,7 +49,7 @@ const ExploreButton = ({ href }) => (
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    whileHover={{ scale: 1.1 }}
+    className="explore-pulse-btn"
     whileTap={{ scale: 0.95 }}
     style={{
       width: '120px',
@@ -63,7 +63,6 @@ const ExploreButton = ({ href }) => (
       color: 'var(--text-primary)',
       fontSize: '0.9rem',
       fontWeight: '500',
-      transition: 'var(--transition)',
       marginTop: '2rem'
     }}
   >
@@ -71,31 +70,33 @@ const ExploreButton = ({ href }) => (
   </motion.a>
 );
 
-const MasonryGrid = ({ images }) => {
+const LandscapeImage = ({ src, alt }) => {
   return (
-    <div style={{
-      display: 'grid',
-      gridTemplateColumns: 'repeat(2, 1fr)',
-      gridAutoRows: '200px',
-      gap: '1rem',
-      width: '100%',
-      maxWidth: '600px'
-    }}>
-      <div style={{ gridRow: 'span 2' }}>
-        <img src={images[0]} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Project grid 1" />
-      </div>
-      <div>
-        <img src={images[1]} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Project grid 2" />
-      </div>
-      <div style={{ gridRow: 'span 2' }}>
-        <img src={images[2]} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Project grid 3" />
-      </div>
-      <div>
-        <img src={images[3]} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Project grid 4" />
-      </div>
-    </div>
+    <motion.div
+      whileHover={{ scale: 1.03 }}
+      transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
+      style={{
+        width: '100%',
+        aspectRatio: '16 / 9',
+        overflow: 'hidden',
+        borderRadius: '20px',
+        boxShadow: '0 30px 60px rgba(0,0,0,0.12)',
+        backgroundColor: '#e5e7eb'
+      }}
+    >
+      <img
+        src={src}
+        alt={alt}
+        style={{
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover'
+        }}
+      />
+    </motion.div>
   );
 };
+
 
 export default function Projects() {
   return (
@@ -125,7 +126,7 @@ export default function Projects() {
           Projects
         </motion.h2>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '15rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '8rem' }}>
           {projectsData.map((project, index) => (
             <motion.div
               key={index}
@@ -139,7 +140,6 @@ export default function Projects() {
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 gap: '8rem',
-                minHeight: '80vh',
                 flexWrap: 'wrap'
               }}
             >
@@ -165,9 +165,9 @@ export default function Projects() {
                 <ExploreButton href={project.live} />
               </div>
 
-              {/* Right Column: Masonry Grid */}
+              {/* Right Column: Landscape Image */}
               <div style={{ flex: 1.2, minWidth: '300px', width: '100%' }}>
-                <MasonryGrid images={project.images} />
+                <LandscapeImage src={project.images[0]} alt={project.title} />
               </div>
             </motion.div>
           ))}
