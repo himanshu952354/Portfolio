@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { FiArrowUpRight } from 'react-icons/fi';
 
 const moreProjectsData = [
@@ -26,6 +26,7 @@ const moreProjectsData = [
 ];
 
 const ProjectItem = ({ title, link }) => {
+  const [isHovered, setIsHovered] = useState(false);
   const itemRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: itemRef,
@@ -43,6 +44,8 @@ const ProjectItem = ({ title, link }) => {
       href={link}
       target="_blank"
       rel="noopener noreferrer"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       style={{
         display: 'flex',
         justifyContent: 'space-between',
@@ -54,6 +57,7 @@ const ProjectItem = ({ title, link }) => {
         opacity,
         filter: `blur(${blur}px)`,
         scale,
+        position: 'relative',
       }}
       whileHover={{ x: 10 }}
       transition={{ duration: 0.3 }}
@@ -70,7 +74,12 @@ const ProjectItem = ({ title, link }) => {
       </h3>
 
       <motion.div
-        whileHover={{ scale: 1.1, backgroundColor: '#000', color: '#fff' }}
+        animate={{
+          scale: isHovered ? 1.1 : 1,
+          backgroundColor: isHovered ? '#000' : 'transparent',
+          color: isHovered ? '#fff' : '#000'
+        }}
+        transition={{ duration: 0.3 }}
         style={{
           width: '50px',
           height: '50px',
@@ -80,12 +89,23 @@ const ProjectItem = ({ title, link }) => {
           alignItems: 'center',
           justifyContent: 'center',
           fontSize: '1.2rem',
-          transition: 'background-color 0.3s ease',
-          color: '#000'
         }}
       >
         <FiArrowUpRight />
       </motion.div>
+
+      <motion.div
+        animate={{ width: isHovered ? '100%' : '0%' }}
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          height: '2px',
+          backgroundColor: 'var(--text-primary)',
+          zIndex: 2
+        }}
+      />
     </motion.a>
   );
 };

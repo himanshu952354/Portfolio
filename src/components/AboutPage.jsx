@@ -4,8 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import { 
   SiHtml5, SiCss, SiSass, SiBootstrap, SiTailwindcss, SiJavascript, 
   SiTypescript, SiReact, SiNextdotjs, SiAstro, SiReactquery, 
-  SiSwr, SiStyledcomponents, SiGit, SiGreensock, SiFigma, SiFramer 
+  SiSwr, SiStyledcomponents, SiGit, SiGreensock, SiFigma, SiFramer,
+  SiNodedotjs, SiExpress, SiMongodb, SiMysql, SiPython, 
+  SiCplusplus, SiPostman, SiGithub, SiC
 } from 'react-icons/si';
+import { DiJava } from 'react-icons/di';
 
 const fadeIn = {
   initial: { opacity: 0, y: 40 },
@@ -16,25 +19,23 @@ export default function AboutPage() {
   const navigate = useNavigate();
 
   const techStack = [
-    { name: 'HTML', icon: <SiHtml5 /> },
-    { name: 'CSS, SASS', icon: <div style={{ display: 'flex', gap: '4px' }}><SiCss /><SiSass /></div> },
-    { name: 'Bootstrap', icon: <SiBootstrap /> },
-    { name: 'Tailwind', icon: <SiTailwindcss /> },
-    { name: 'JS, ES6', icon: <SiJavascript /> },
-    { name: 'Typescript', icon: <SiTypescript /> },
+    { name: 'Java', icon: <DiJava /> },
+    { name: 'C++', icon: <SiCplusplus /> },
+    { name: 'Python', icon: <SiPython /> },
+    { name: 'JavaScript', icon: <SiJavascript /> },
     { name: 'React js', icon: <SiReact /> },
-    { name: 'Next js', icon: <SiNextdotjs /> },
-    { name: 'Astro', icon: <SiAstro /> },
-    { name: 'React Query', icon: <SiReactquery /> },
-    { name: 'SWR', icon: <SiSwr /> },
-    { name: 'Styled Components', icon: <SiStyledcomponents /> },
-    { name: 'Git', icon: <SiGit /> },
-    { name: 'Framer Motion', icon: <SiFramer /> },
-    { name: 'GSAP', icon: <SiGreensock /> },
+    { name: 'Node js', icon: <SiNodedotjs /> },
+    { name: 'Express', icon: <SiExpress /> },
+    { name: 'MongoDB', icon: <SiMongodb /> },
+    { name: 'SQL', icon: <SiMysql /> },
+    { name: 'HTML / CSS', icon: <div style={{ display: 'flex', gap: '4px' }}><SiHtml5 /><SiCss /></div> },
+    { name: 'Tailwind', icon: <SiTailwindcss /> },
+    { name: 'Git / GitHub', icon: <div style={{ display: 'flex', gap: '4px' }}><SiGit /><SiGithub /></div> },
+    { name: 'Postman', icon: <SiPostman /> },
     { name: 'Figma', icon: <SiFigma /> },
-    { name: 'Adobe XD', icon: <FiGrid /> },
-    { name: 'Illustrator', icon: <FiPenTool /> }
+    { name: 'C', icon: <SiC /> }
   ];
+
 
   return (
     <div style={{

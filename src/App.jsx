@@ -22,6 +22,8 @@ function App() {
           element.scrollIntoView({ behavior: 'smooth' });
         }, 100);
       }
+    } else {
+      window.scrollTo(0, 0);
     }
   }, [location]);
 
