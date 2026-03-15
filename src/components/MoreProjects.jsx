@@ -102,10 +102,13 @@ export default function MoreProjects() {
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
         style={{
-          fontSize: 'clamp(3rem, 6vw, 6rem)',
-          fontWeight: 500,
-          marginBottom: '4rem',
-          letterSpacing: '-2px'
+          fontSize: 'clamp(3rem, 7vw, 10rem)',
+          lineHeight: 1,
+          marginBottom: '6rem',
+          fontWeight: 400,
+          letterSpacing: '-2px',
+          color: 'var(--text-primary)',
+          opacity: 0.2
         }}
       >
         More Projects

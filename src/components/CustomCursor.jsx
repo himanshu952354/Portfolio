@@ -3,6 +3,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 export default function CustomCursor({ isHoveringRing }) {
   const [isVisible, setIsVisible] = useState(false);
+  const [isHoveringImage, setIsHoveringImage] = useState(false);
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
@@ -19,14 +20,24 @@ export default function CustomCursor({ isHoveringRing }) {
     const handleMouseEnter = () => setIsVisible(true);
     const handleMouseLeave = () => setIsVisible(false);
 
+    const handleMouseOver = (e) => {
+      if (e.target.tagName === 'IMG') {
+        setIsHoveringImage(true);
+      } else {
+        setIsHoveringImage(false);
+      }
+    };
+
     window.addEventListener('mousemove', moveCursor);
     document.body.addEventListener('mouseenter', handleMouseEnter);
     document.body.addEventListener('mouseleave', handleMouseLeave);
+    document.body.addEventListener('mouseover', handleMouseOver);
 
     return () => {
       window.removeEventListener('mousemove', moveCursor);
       document.body.removeEventListener('mouseenter', handleMouseEnter);
       document.body.removeEventListener('mouseleave', handleMouseLeave);
+      document.body.removeEventListener('mouseover', handleMouseOver);
     };
   }, [cursorX, cursorY]);
 
@@ -36,7 +47,7 @@ export default function CustomCursor({ isHoveringRing }) {
 
     // Select all interactive elements
     const styleLinksAndButtons = () => {
-      const interactiveElements = document.querySelectorAll('a, button, input, textarea, [role="button"]');
+      const interactiveElements = document.querySelectorAll('a, button, input, textarea, [role="button"], img');
       interactiveElements.forEach(el => {
         el.style.cursor = 'none';
       });
@@ -49,7 +60,7 @@ export default function CustomCursor({ isHoveringRing }) {
     return () => {
       document.body.style.cursor = 'auto';
       clearTimeout(timeout);
-      const interactiveElements = document.querySelectorAll('a, button, input, textarea, [role="button"]');
+      const interactiveElements = document.querySelectorAll('a, button, input, textarea, [role="button"], img');
       interactiveElements.forEach(el => {
         el.style.cursor = 'auto';
       });
@@ -58,6 +69,7 @@ export default function CustomCursor({ isHoveringRing }) {
 
   return (
     <motion.div
+      className="custom-cursor"
       style={{
         position: 'fixed',
         top: 0,
@@ -74,7 +86,7 @@ export default function CustomCursor({ isHoveringRing }) {
         opacity: isVisible ? 1 : 0,
       }}
       animate={{
-        scale: isHoveringRing ? 0 : 1, // Shrinks to 0 when hovering the ring
+        scale: isHoveringRing ? 0 : (isHoveringImage ? 2.5 : 1), // Shrinks to 0 when hovering ring, grows to 2.5 on image
       }}
       transition={{ duration: 0.2 }}
     />
