@@ -4,39 +4,39 @@ import { FiGithub, FiExternalLink } from 'react-icons/fi';
 
 const projectsData = [
   {
-    title: "Full Stack Dashboard",
-    description: "A comprehensive dashboard with data visualization, secure authentication, and real-time backend updates.",
+    title: "Plan Pilot",
+    description: "A modern Dashboard containing intuitive planning tools, visual metrics, and fully responsive layouts.",
     tech: ["MERN Stack", "React", "Node.js", "MongoDB"],
     github: "#",
-    live: "#",
+    live: "https://plan-pilot-blush.vercel.app/",
     images: [
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+      "/Portfolio_NEW/projects/plan_pilot.png",
       "https://images.unsplash.com/photo-1504868584819-f8e905b6fc79?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
     ]
   },
   {
-    title: "E-Commerce Platform",
-    description: "A secure and scalable e-commerce site featuring a complete shopping cart system, user profiles, and order tracking.",
-    tech: ["Java", "Spring Boot", "MySQL", "React"],
+    title: "Echo",
+    description: "AI-powered sentiment analysis and performance metrics for real-time call center insights.",
+    tech: ["React", "Node.js", "AI Analytics", "Tailwind"],
     github: "#",
-    live: "#",
+    live: "https://echo-gold.vercel.app/",
     images: [
-      "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=800&q=80",
+      "/Portfolio_NEW/projects/echo_gold.png",
       "https://images.unsplash.com/photo-1523474253046-2cd2c78b68ec?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=800&q=80"
     ]
   },
   {
-    title: "Algorithm Visualizer",
-    description: "An interactive web application to visualize complex Data Structures and Algorithms like Sorting, Pathfinding, etc.",
-    tech: ["HTML5", "CSS3", "JavaScript", "Algorithms"],
+    title: "AgroTools",
+    description: "Everything you need for modern farming - deliver to your doorstep!",
+    tech: ["HTML5", "CSS3", "PHP", "MySQL"],
     github: "#",
-    live: "#",
+    live: "http://localhost/Project/Project_FB/Home.php",
     images: [
-      "https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?auto=format&fit=crop&w=800&q=80",
+      "/Portfolio_NEW/projects/agrotools.png",
       "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?auto=format&fit=crop&w=800&q=80"
@@ -162,6 +162,16 @@ export default function Projects() {
                 }}>
                   {project.title}
                 </motion.h3>
+                <p style={{
+                  color: 'var(--text-secondary)',
+                  fontSize: '1.1rem',
+                  marginTop: '1rem',
+                  maxWidth: '400px',
+                  lineHeight: 1.6,
+                  fontWeight: 400
+                }}>
+                  {project.description}
+                </p>
                 <ExploreButton href={project.live} />
               </div>
 
