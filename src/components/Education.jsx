@@ -4,19 +4,19 @@ import { useRef } from 'react';
 const educationData = [
   {
     degree: "Bachelor of Technology (Current Undergraduate)",
-    institution: "Your University Name",
-    duration: "2022 - Present",
+    institution: "Lovely Professional University, Phagwara, Punjab",
+    duration: "2023 - Present",
     description: "Currently pursuing B.Tech in Computer Science & Engineering. Gaining expertise in Data Structures, Algorithms, Web Development, and core engineering principles."
   },
   {
     degree: "Higher Secondary Education (Class XII)",
-    institution: "Your School Name",
+    institution: "Ram Krishna College, Madhubani, Bihar",
     duration: "2020 - 2022",
     description: "Completed with a focus on Physics, Chemistry, and Mathematics (Science stream). Highly oriented towards engineering problem solving formats."
   },
   {
     degree: "Secondary Education (Class X)",
-    institution: "Your School Name",
+    institution: "Regional Secondary School, Madhubani, Bihar",
     duration: "2018 - 2020",
     description: "Completed general curriculum covering Math, Science, and languages thoroughly designed forming absolute layout base."
   }

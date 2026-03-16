@@ -5,25 +5,19 @@ import { useState } from 'react';
 const achievementsData = [
   {
     title: "LeetCode",
-    subtitle: "500+ Problems Solved • Top 5%",
-    link: "#"
+    subtitle: "100+ Questions Solved • 1500+ Contest Rating",
+    link: "https://leetcode.com/u/Dj952354/"
   },
   {
     title: "Codeforces",
-    subtitle: "Specialist • Max Rating: 1450",
-    link: "#"
+    subtitle: "Newbie • Rating: 937 (Max: 969)",
+    link: "https://codeforces.com/profile/dj9523"
   },
   {
-    title: "Global Hack Week",
-    subtitle: "Winner — Best Web App",
-    description: "Built a full-stack platform for connecting local farmers directly with consumers, effectively cutting out the middleman.",
-    link: "#"
-  },
-  {
-    title: "Smart India Hackathon",
-    subtitle: "Finalist",
-    description: "Developed an AI-driven dashboard that visualizes predictive data models for urban traffic management.",
-    link: "#"
+    title: "CodeChef",
+    subtitle: "1 Star • Rating: 1345 (Max: 1345)",
+    description: "Global Rank: 55920 • Country Rank: 52403",
+    link: "https://www.codechef.com/users/troop_team_23"
   }
 ];
 

@@ -4,22 +4,40 @@ import { useState } from 'react';
 
 const certificates = [
   {
-    title: "AWS Certified Developer - Associate",
-    issuer: "Amazon Web Services",
-    date: "2023",
-    link: "#"
+    title: "The Bits and Bytes of Computer Networking",
+    issuer: "Google",
+    date: "2024",
+    link: "https://drive.google.com/file/d/1avD1aTeGwgOkInPW3HeXkZPLVzWWhcs7/view?usp=sharing"
   },
   {
-    title: "Java Programming Masterclass",
+    title: "Human Computer Interaction",
+    issuer: "NPTEL",
+    date: "2025",
+    link: "https://drive.google.com/drive/folders/1aNGYgxHohKM0LAT96LGJpk7rLLKOl4fH?usp=sharing"
+  },
+  {
+    title: "ChatGPT-4 Prompt Engineering: ChatGPT, Generative AI & LLM",
+    issuer: "Infosys Springboard",
+    date: "2025",
+    link: "https://drive.google.com/file/d/1hR_xZfWZ9bMw4HHe_xh8szCo-towZUSC/view?usp=sharing"
+  },
+  {
+    title: "Fundamentals of Network Communication",
+    issuer: "University of Colorado",
+    date: "2024",
+    link: "https://coursera.org/verify/E5WER3UWKGCJ"
+  },
+  {
+    title: "Java Programming",
+    issuer: "Lovely Professional University",
+    date: "2025",
+    link: "https://drive.google.com/file/d/189gpbome7y3ROYzALjHpmSNpxpfhojEr/view?usp=drive_link"
+  },
+  {
+    title: "Python Programming & Software Design For Absolute Beginners",
     issuer: "Udemy",
-    date: "2022",
-    link: "#"
-  },
-  {
-    title: "Full Stack Open",
-    issuer: "University of Helsinki",
     date: "2023",
-    link: "#"
+    link: "https://ude.my/UC-b05ab72f-8c87-4a42-b335-678b441c01ea"
   }
 ];
 
