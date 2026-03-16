@@ -31,7 +31,7 @@ const projectsData = [
   },
   {
     title: "AgroTools",
-    description: "Everything you need for modern farming - deliver to your doorstep!",
+    description: "A digital marketplace empowering modern agriculture with premium farming supplies, equipment, and direct-to-farm delivery.",
     tech: ["HTML5", "CSS3", "PHP", "MySQL"],
     github: "#",
     live: "http://localhost/Project/Project_FB/Home.php",
