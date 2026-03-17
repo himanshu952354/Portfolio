@@ -159,21 +159,21 @@ export default function Projects() {
                 >
                   {project.title}
                 </h3>
-                <p
-                  data-aos="fade-up"
-                  data-aos-delay="100"
-                  style={{
-                    color: 'var(--text-secondary)',
-                    fontSize: '1.1rem',
-                    marginTop: '1rem',
-                    maxWidth: '400px',
-                    lineHeight: 1.6,
-                    fontWeight: 400
-                  }}
-                >
-                  {project.description}
-                </p>
-                <ExploreButton href={project.live} data-aos="fade-up" data-aos-delay="2100" />
+                <div data-aos="fade-up" data-aos-delay="100">
+                  <p
+                    style={{
+                      color: 'var(--text-secondary)',
+                      fontSize: '1.1rem',
+                      marginTop: '1rem',
+                      maxWidth: '400px',
+                      lineHeight: 1.6,
+                      fontWeight: 400
+                    }}
+                  >
+                    {project.description}
+                  </p>
+                  <ExploreButton href={project.live} />
+                </div>
               </div>
 
               {/* Right Column: Landscape Image */}
