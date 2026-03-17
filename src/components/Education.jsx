@@ -124,8 +124,8 @@ export default function Education() {
           {educationData.map((edu, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30, filter: 'blur(4px)' }}
-              whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8, delay: index * 0.1, ease: 'easeOut' }}
               style={{

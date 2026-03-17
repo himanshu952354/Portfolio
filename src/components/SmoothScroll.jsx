@@ -6,9 +6,10 @@ export default function SmoothScroll() {
     // Initialize Lenis with high-sensitivity momentum scroll
     const lenis = new Lenis({
       duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // standard smooth ease
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
       smoothWheel: true,
-      wheelMultiplier: 1.2, // Slightly higher sensitivity for fluid flow
+      wheelMultiplier: 1.2, 
+      smoothTouch: false, // Disabling on touch device to use native smooth scroll
       touchMultiplier: 1.5
     });
 

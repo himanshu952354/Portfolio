@@ -142,6 +142,8 @@
   z-index: 10;
   pointer-events: auto;
   border-left: 1px solid var(--glass-border);
+  transform: translateZ(0); /* Hardware acceleration */
+  will-change: transform;
 }
 
 [data-position='left'] .staggered-menu-panel {

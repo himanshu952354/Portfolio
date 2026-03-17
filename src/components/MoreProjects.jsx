@@ -35,7 +35,6 @@ const ProjectItem = ({ title, link }) => {
 
   // Scroll blur and opacity effect like mohitkumar.dev
   const opacity = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [0.3, 1, 1, 0.3]);
-  const blur = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [5, 0, 0, 5]);
   const scale = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [0.95, 1, 1, 0.95]);
 
   return (
@@ -55,9 +54,10 @@ const ProjectItem = ({ title, link }) => {
         textDecoration: 'none',
         color: 'var(--text-primary)',
         opacity,
-        filter: `blur(${blur}px)`,
         scale,
         position: 'relative',
+        transform: 'translateZ(0)', // hardware acceleration
+        willChange: 'transform, opacity'
       }}
       whileHover={{ x: 10 }}
       transition={{ duration: 0.3 }}

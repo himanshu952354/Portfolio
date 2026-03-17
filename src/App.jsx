@@ -33,8 +33,8 @@ function App() {
   useEffect(() => {
     AOS.init({
       duration: 1000,
-      once: false,
-      mirror: true,
+      once: true,    // Run animation only once to significantly improve mobile scroll performance
+      mirror: false, // Don't animate out when scrolling past
     });
   }, []);
 

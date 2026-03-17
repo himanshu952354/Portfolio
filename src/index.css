@@ -41,16 +41,33 @@
 
 html {
   font-family: 'Inter', 'Outfit', sans-serif;
-  scroll-behavior: smooth;
   color: var(--text-primary);
   background-color: var(--bg-color);
-  overflow-x: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {
   line-height: 1.6;
   overflow-x: hidden;
+  max-width: 100vw;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Lenis recommended styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }
 
 h1,
@@ -81,6 +98,8 @@ ul {
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow);
   border-radius: 24px;
+  transform: translateZ(0); /* Hardware acceleration */
+  will-change: transform;
 }
 
 /* Gradient Text Utility */
