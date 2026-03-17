@@ -1,9 +1,14 @@
 import { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
+// Detect touch/coarse-pointer devices (mobile phones, tablets)
+const isTouchDevice = () =>
+  typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches;
+
 export default function CustomCursor({ isHoveringRing }) {
   const [isVisible, setIsVisible] = useState(false);
   const [isHoveringImage, setIsHoveringImage] = useState(false);
+  const [isTouch] = useState(() => isTouchDevice());
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
@@ -12,6 +17,9 @@ export default function CustomCursor({ isHoveringRing }) {
   const cursorYSpring = useSpring(cursorY, springConfig);
 
   useEffect(() => {
+    // Don't attach any mouse listeners on touch devices
+    if (isTouch) return;
+
     const moveCursor = (e) => {
       cursorX.set(e.clientX - 20);
       cursorY.set(e.clientY - 20);
@@ -39,10 +47,12 @@ export default function CustomCursor({ isHoveringRing }) {
       document.body.removeEventListener('mouseleave', handleMouseLeave);
       document.body.removeEventListener('mouseover', handleMouseOver);
     };
-  }, [cursorX, cursorY]);
+  }, [cursorX, cursorY, isTouch]);
 
-  // Hide the default cursor when this component is active
+  // Hide the default cursor when this component is active (mouse devices only)
   useEffect(() => {
+    if (isTouch) return; // Never hide cursor on touch devices
+
     document.body.style.cursor = 'none';
 
     // Select all interactive elements
@@ -65,7 +75,10 @@ export default function CustomCursor({ isHoveringRing }) {
         el.style.cursor = 'auto';
       });
     };
-  }, []);
+  }, [isTouch]);
+
+  // Render nothing on touch/mobile devices
+  if (isTouch) return null;
 
   return (
     <motion.div
@@ -86,7 +99,7 @@ export default function CustomCursor({ isHoveringRing }) {
         opacity: isVisible ? 1 : 0,
       }}
       animate={{
-        scale: isHoveringRing ? 0 : (isHoveringImage ? 2.5 : 1), // Shrinks to 0 when hovering ring, grows to 2.5 on image
+        scale: isHoveringRing ? 0 : (isHoveringImage ? 2.5 : 1),
       }}
       transition={{ duration: 0.2 }}
     />

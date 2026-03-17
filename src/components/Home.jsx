@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <section id="home" style={{
       position: 'relative',
-      overflow: 'visible',
+      overflow: 'hidden',
       padding: '10rem var(--spacing-x) 2rem var(--spacing-x)',
       zIndex: 1,
       minHeight: '100vh',

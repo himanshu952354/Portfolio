@@ -345,9 +345,12 @@ export const StaggeredMenu = ({
       }
     };
 
+    // Listen for both mouse and touch events so mobile taps also close the menu
     document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
     };
   }, [closeOnClickAway, open, closeMenu]);
 
