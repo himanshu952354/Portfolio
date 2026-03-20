@@ -110,6 +110,37 @@ const Resume = () => {
         p {
           margin: 0.05rem 0;
         }
+
+        /* Responsive Mobile Layout */
+        @media (max-width: 768px) {
+          .resume-page {
+            padding: 100px 15px 40px !important;
+          }
+          .resume-paper {
+            padding: 25px 20px !important;
+          }
+          header h1 {
+            font-size: 1.8rem !important;
+          }
+          .flex-between {
+            flex-direction: column;
+            align-items: flex-start !important;
+            gap: 0.2rem;
+            margin-bottom: 0.5rem;
+          }
+          .flex-between > div {
+            text-align: left !important;
+            width: 100%;
+          }
+          .skill-label {
+            display: block !important;
+            min-width: 100% !important;
+          }
+          .skill-item > span:nth-child(2) {
+            display: block !important;
+            width: 100% !important;
+          }
+        }
       `}</style>
 
       {/* Page Header (Heading & Button) */}
