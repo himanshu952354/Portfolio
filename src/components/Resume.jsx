@@ -51,7 +51,7 @@ const Resume = () => {
           font-size: 1rem;
           font-weight: bold;
           color: ${primaryColor};
-          margin-top: 0.6rem;
+          margin-top: 0.8rem;
           margin-bottom: 0.05rem !important;
           text-align: left !important;
           text-transform: uppercase;
@@ -174,7 +174,7 @@ const Resume = () => {
         <section>
           <h2 className="section-title">SKILLS</h2>
           <div className="section-divider"></div>
-          <div style={{ marginTop: '0.4rem' }}>
+          <div style={{ marginTop: '0.3rem' }}>
             <div className="skill-item">
               <span className="skill-label">Languages:</span>
               <span>Java, JavaScript, C++, PHP, HTML</span>
@@ -199,7 +199,7 @@ const Resume = () => {
           <h2 className="section-title">PROJECTS</h2>
           <div className="section-divider"></div>
           
-          <div style={{ marginTop: '0.2rem', fontSize: '0.9rem' }}>
+          <div style={{ marginTop: '0.3rem', fontSize: '0.9rem' }}>
             <div className="flex-between">
               <p className="bold-blue">Echo - Sentiment Analysis of Incoming Helpdesk Calls | <a href="https://github.com/himanshu952354" target="_blank" rel="noreferrer" className="blue-link">GitHub</a></p>
               <p style={{ fontWeight: 500 }}>Dec’ 2025</p>
@@ -210,7 +210,19 @@ const Resume = () => {
               <li>Crafted an interactive dashboard for continuous sentiment visualization.</li>
               <li>Leveraged NLP and ML techniques to extract behavioral insights.</li>
               <li>Streamlined escalation workflows via intelligent high-risk call alerts.</li>
-              <li><span className="bold-blue">Tech stack used:</span> React, JavaScript, Node.js, APIs, NLP, Speech-to-text, MongoDB</li>
+            </ul>
+          </div>
+
+          <div style={{ marginTop: '0.4rem', fontSize: '0.9rem' }}>
+            <div className="flex-between">
+              <p className="bold-blue">Giftit - Gift Recommender Chatbot | <a href="https://github.com/himanshu952354" target="_blank" rel="noreferrer" className="blue-link">GitHub</a></p>
+              <p style={{ fontWeight: 500 }}>Oct’ 2025</p>
+            </div>
+            <ul style={{ listStyleType: 'disc' }}>
+              <li>Designed an AI chatbot to offer personalized gift suggestions.</li>
+              <li>Integrated natural language processing to understand user preferences.</li>
+              <li>Utilized a recommendation engine for accurate results.</li>
+              <li><span className="bold-blue">Tech stack used:</span> Python, Flask, OpenAI API, JavaScript</li>
             </ul>
           </div>
 
@@ -224,7 +236,6 @@ const Resume = () => {
               <li>Implemented role-based authentication and structured product categorization.</li>
               <li>Enhanced backend efficiency through optimized PHP–MySQL operations.</li>
               <li>Delivered a responsive interface promoting seamless farmer accessibility.</li>
-              <li><span className="bold-blue">Tech stack used:</span> HTML, Tailwind CSS, PHP, MySQL, JavaScript</li>
             </ul>
           </div>
 
@@ -237,7 +248,6 @@ const Resume = () => {
               <li>Designed a desktop contact system supporting CRUD and instant search operations.</li>
               <li>Applied Trie-based indexing for rapid prefix filtering.</li>
               <li>Engineered a structured GUI with input validation and persistent storage handling.</li>
-              <li>Demonstrated strong object-oriented design and file management practices.</li>
               <li><span className="bold-blue">Tech stack used:</span> Java, Java-Swing, AWT, Trie Data Structure, OOPs, FileHandling</li>
             </ul>
           </div>
@@ -247,7 +257,7 @@ const Resume = () => {
         <section>
           <h2 className="section-title">TRAINING</h2>
           <div className="section-divider"></div>
-          <div style={{ marginTop: '0.4rem', fontSize: '0.9rem' }}>
+          <div style={{ marginTop: '0.3rem', fontSize: '0.9rem' }}>
             <div className="flex-between">
               <p className="bold-blue">Lovely Professional University | <a href="#" className="blue-link">Certificate</a></p>
               <p style={{ fontWeight: 500 }}>Jun’ 2025 – Jul’ 2025</p>
@@ -265,24 +275,28 @@ const Resume = () => {
         <section>
           <h2 className="section-title">CERTIFICATES</h2>
           <div className="section-divider"></div>
-          <div style={{ marginTop: '0.4rem', fontSize: '0.9rem' }}>
-            <div className="flex-between" style={{ marginBottom: '0.1rem' }}>
+          <div style={{ marginTop: '0.3rem', fontSize: '0.9rem' }}>
+            <div className="flex-between" style={{ marginBottom: '0.05rem' }}>
               <p>ChatGPT- 4 Prompt Engineering - <a href="#" className="blue-link">Infosys</a></p>
               <p style={{ fontWeight: 500 }}>Aug’ 2025</p>
             </div>
-            <div className="flex-between" style={{ marginBottom: '0.1rem' }}>
+            <div className="flex-between" style={{ marginBottom: '0.05rem' }}>
+              <p>Introduction to Front-End Development - <a href="#" className="blue-link">Coursera</a></p>
+              <p style={{ fontWeight: 500 }}>Jun’ 2024</p>
+            </div>
+            <div className="flex-between" style={{ marginBottom: '0.05rem' }}>
               <p>Java Programming - <a href="#" className="blue-link">NeoColab</a></p>
               <p style={{ fontWeight: 500 }}>May’ 2025</p>
             </div>
-            <div className="flex-between" style={{ marginBottom: '0.1rem' }}>
+            <div className="flex-between" style={{ marginBottom: '0.05rem' }}>
               <p>Human Computer Interaction - <a href="#" className="blue-link">NPTEL</a></p>
               <p style={{ fontWeight: 500 }}>Apr’ 2025</p>
             </div>
-            <div className="flex-between" style={{ marginBottom: '0.1rem' }}>
+            <div className="flex-between" style={{ marginBottom: '0.05rem' }}>
               <p>Data Structures and Algorithm - <a href="#" className="blue-link">NeoColab</a></p>
               <p style={{ fontWeight: 500 }}>Dec’ 2024</p>
             </div>
-            <div className="flex-between" style={{ marginBottom: '0.1rem' }}>
+            <div className="flex-between" style={{ marginBottom: '0.05rem' }}>
               <p>Responsive Web Design - <a href="#" className="blue-link">FreeCodeCamp</a></p>
               <p style={{ fontWeight: 500 }}>Nov’ 2023</p>
             </div>
@@ -293,7 +307,7 @@ const Resume = () => {
         <section>
           <h2 className="section-title">ACHIEVEMENTS</h2>
           <div className="section-divider"></div>
-          <ul style={{ listStyleType: 'disc', marginTop: '0.4rem', fontSize: '0.9rem' }}>
+          <ul style={{ listStyleType: 'disc', marginTop: '0.3rem', fontSize: '0.9rem' }}>
             <li>Solved 200+ algorithmic problems across LeetCode, CodeChef, and Codeforces.</li>
             <li>Achieved ratings of 1500+ (LeetCode), 1200+ (CodeChef), and 1000+ (Codeforces). <a href="#" className="blue-link">Codolio</a></li>
           </ul>
@@ -303,7 +317,7 @@ const Resume = () => {
         <section>
           <h2 className="section-title">EDUCATION</h2>
           <div className="section-divider"></div>
-          <div style={{ marginTop: '0.2rem', fontSize: '0.9rem' }}>
+          <div style={{ marginTop: '0.3rem', fontSize: '0.9rem' }}>
             <div className="flex-between">
               <p className="bold-blue">Lovely Professional University</p>
               <p style={{ fontWeight: 500 }}>Phagwara, Punjab</p>
