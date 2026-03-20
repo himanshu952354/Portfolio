@@ -119,7 +119,12 @@ const Resume = () => {
         </motion.a>
       </div>
 
-      <div className="resume-paper">
+      <div 
+        className="resume-paper"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-delay="200"
+      >
         {/* Header Section */}
         <header>
           <h1 style={{ fontSize: '1.875rem', fontWeight: 'bold', color: '#1e3a8a', margin: '0 0 0.5rem 0' }}>Himanshu Shekhar</h1>
