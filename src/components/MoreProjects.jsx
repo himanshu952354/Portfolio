@@ -63,105 +63,118 @@ const ProjectItem = ({ title, link, image }) => {
       onMouseMove={handleMouseMove}
       style={{
         display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '2rem 0',
-        borderBottom: '1px solid rgba(0,0,0,0.1)',
+        width: '100%',
         textDecoration: 'none',
         color: 'var(--text-primary)',
-        opacity,
-        scale,
         position: 'relative',
         transform: 'translateZ(0)', // hardware acceleration
-        willChange: 'transform, opacity'
+        willChange: 'transform'
       }}
       whileHover={{ scale: 0.98, x: 10 }}
       transition={{ duration: 0.3 }}
       className="more-project-item"
     >
-      <h3 style={{
-        fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
-        fontWeight: 500,
-        margin: 0,
-        letterSpacing: '-1px',
-        transition: 'font-weight 0.2s ease',
-        zIndex: 2,
-        position: 'relative'
-      }}>
-        {title}
-      </h3>
-
-      {/* Floating Thumbnail Image */}
-      {image && (
-        <motion.div
-          animate={{ 
-            opacity: isHovered ? 1 : 0,
-            scale: isHovered ? 1 : 0.5,
-            x: mousePos.x,
-            y: mousePos.y
-          }}
-          transition={{ 
-            opacity: { duration: 0.2 },
-            scale: { duration: 0.2 },
-            x: { type: "spring", stiffness: 150, damping: 15, mass: 0.1 },
-            y: { type: "spring", stiffness: 150, damping: 15, mass: 0.1 }
-          }}
-          style={{
-            position: 'absolute',
-            top: '-100px', // center offset half height
-            left: '-175px', // center offset half width
-            width: '350px',
-            height: '200px',
-            pointerEvents: 'none',
-            zIndex: 10,
-          }}
-        >
-          <img 
-            src={image} 
-            alt={`${title} preview`}
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              borderRadius: '12px',
-              boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
-              display: 'block'
-            }}
-          />
-        </motion.div>
-      )}
-
       <motion.div
-        animate={{
-          scale: isHovered ? 1.1 : 1,
-          backgroundColor: isHovered ? '#000' : 'transparent',
-          color: isHovered ? '#fff' : '#000'
-        }}
-        transition={{ duration: 0.3 }}
         style={{
-          width: '50px',
-          height: '50px',
-          borderRadius: '50%',
-          border: '1px solid #000',
           display: 'flex',
+          justifyContent: 'space-between',
           alignItems: 'center',
-          justifyContent: 'center',
-          fontSize: '1.2rem',
+          width: '100%',
+          padding: '2rem 0',
+          borderBottom: '1px solid rgba(0,0,0,0.1)',
+          opacity,
+          scale,
+          willChange: 'transform, opacity'
         }}
       >
-        <FiArrowUpRight />
+        <h3 style={{
+          fontSize: 'clamp(1.5rem, 3vw, 2.5rem)',
+          fontWeight: 500,
+          margin: 0,
+          letterSpacing: '-1px',
+          transition: 'font-weight 0.2s ease',
+          zIndex: 2,
+          position: 'relative'
+        }}>
+          {title}
+        </h3>
+
+        {/* Floating Thumbnail Image */}
+        {image && (
+          <motion.div
+            animate={{ 
+              opacity: isHovered ? 1 : 0,
+              scale: isHovered ? 1 : 0.5,
+              x: mousePos.x,
+              y: mousePos.y
+            }}
+            transition={{ 
+              opacity: { duration: 0.2 },
+              scale: { duration: 0.2 },
+              x: { type: "spring", stiffness: 150, damping: 15, mass: 0.1 },
+              y: { type: "spring", stiffness: 150, damping: 15, mass: 0.1 }
+            }}
+            style={{
+              position: 'absolute',
+              top: '-100px', // center offset half height
+              left: '-175px', // center offset half width
+              width: '350px',
+              height: '200px',
+              pointerEvents: 'none',
+              zIndex: 10,
+            }}
+          >
+            <img 
+              src={image} 
+              alt={`${title} preview`}
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                borderRadius: '12px',
+                boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
+                display: 'block'
+              }}
+            />
+          </motion.div>
+        )}
+
+        <motion.div
+          animate={{
+            scale: isHovered ? 1.1 : 1,
+            backgroundColor: isHovered ? '#000' : 'transparent',
+            color: isHovered ? '#fff' : '#000'
+          }}
+          transition={{ duration: 0.3 }}
+          style={{
+            width: '50px',
+            height: '50px',
+            borderRadius: '50%',
+            border: '1px solid #000',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '1.2rem',
+          }}
+        >
+          <FiArrowUpRight />
+        </motion.div>
       </motion.div>
 
       <motion.div
-        animate={{ width: isHovered ? '100%' : '0%' }}
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: isHovered ? 1 : 0 }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
         style={{
           position: 'absolute',
           bottom: 0,
           left: 0,
+          right: 0,
           height: '2px',
           backgroundColor: 'var(--text-primary)',
-          zIndex: 2
+          zIndex: 2,
+          transformOrigin: 'left',
+          transform: 'translateZ(0)'
         }}
       />
     </motion.a>

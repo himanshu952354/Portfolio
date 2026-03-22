@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { FiArrowUpRight } from 'react-icons/fi';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 const achievementsData = [
   {
@@ -15,17 +15,25 @@ const achievementsData = [
   },
   {
     title: "CodeChef",
-    subtitle: "1 Star • Rating: 1345 (Max: 1345)",
-    description: "Global Rank: 55920 • Country Rank: 52403",
+    subtitle: "1 Star • Rating: 1345 (Max: 1345) • Global Rank: 55920",
     link: "https://www.codechef.com/users/troop_team_23"
   }
 ];
 
 const ListItem = ({ title, subtitle, description, link }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const itemRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: itemRef,
+    offset: ["start end", "center center", "end start"]
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [0.3, 1, 1, 0.3]);
+  const scale = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [0.95, 1, 1, 0.95]);
 
   return (
     <motion.a
+      ref={itemRef}
       href={link}
       target="_blank"
       rel="noopener noreferrer"
@@ -33,55 +41,71 @@ const ListItem = ({ title, subtitle, description, link }) => {
       onMouseLeave={() => setIsHovered(false)}
       style={{
         display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '2.5rem 0',
-        borderBottom: '1px solid rgba(0,0,0,0.1)',
+        width: '100%',
         textDecoration: 'none',
         color: 'var(--text-primary)',
-        position: 'relative'
+        position: 'relative',
+        transform: 'translateZ(0)'
       }}
-      whileHover={{ x: 10 }}
+      whileHover={{ scale: 0.98, x: 10 }}
       transition={{ duration: 0.3 }}
     >
-      <div>
-        <h3 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.3rem)', fontWeight: 500, margin: 0, color: '#000' }}>{title}</h3>
-        <p style={{ color: 'var(--text-secondary)', margin: '0.4rem 0 0 0', fontSize: '1rem' }}>{subtitle}</p>
-        {description && <p style={{ color: 'var(--text-muted)', margin: '0.6rem 0 0 0', fontSize: '0.95rem', maxWidth: '600px', lineHeight: 1.5 }}>{description}</p>}
-      </div>
-
       <motion.div
-        animate={{
-          scale: isHovered ? 1.1 : 1,
-          backgroundColor: isHovered ? '#000' : 'transparent',
-          color: isHovered ? '#fff' : '#000'
-        }}
-        transition={{ duration: 0.3 }}
         style={{
-          width: '50px',
-          height: '50px',
-          borderRadius: '50%',
-          border: '1px solid #000',
           display: 'flex',
+          justifyContent: 'space-between',
           alignItems: 'center',
-          justifyContent: 'center',
-          fontSize: '1.2rem',
-          flexShrink: 0
+          width: '100%',
+          padding: '2rem 0',
+          borderBottom: '1px solid rgba(0,0,0,0.1)',
+          opacity,
+          scale,
+          willChange: 'transform, opacity'
         }}
       >
-        <FiArrowUpRight />
+        <div>
+          <h3 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.3rem)', fontWeight: 500, margin: 0, color: '#000' }}>{title}</h3>
+          <p style={{ color: 'var(--text-secondary)', margin: '0.4rem 0 0 0', fontSize: '1rem' }}>{subtitle}</p>
+          {description && <p style={{ color: 'var(--text-muted)', margin: '0.6rem 0 0 0', fontSize: '0.95rem', maxWidth: '600px', lineHeight: 1.5 }}>{description}</p>}
+        </div>
+
+        <motion.div
+          animate={{
+            scale: isHovered ? 1.1 : 1,
+            backgroundColor: isHovered ? '#000' : 'transparent',
+            color: isHovered ? '#fff' : '#000'
+          }}
+          transition={{ duration: 0.3 }}
+          style={{
+            width: '50px',
+            height: '50px',
+            borderRadius: '50%',
+            border: '1px solid #000',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '1.2rem',
+            flexShrink: 0
+          }}
+        >
+          <FiArrowUpRight />
+        </motion.div>
       </motion.div>
 
       <motion.div
-        animate={{ width: isHovered ? '100%' : '0%' }}
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: isHovered ? 1 : 0 }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
         style={{
           position: 'absolute',
           bottom: 0,
           left: 0,
+          right: 0,
           height: '2px',
-          backgroundColor: '#000',
-          zIndex: 2
+          backgroundColor: 'var(--text-primary)',
+          zIndex: 2,
+          transformOrigin: 'left',
+          transform: 'translateZ(0)'
         }}
       />
     </motion.a>
