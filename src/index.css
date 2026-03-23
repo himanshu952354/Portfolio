@@ -53,6 +53,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.app-container {
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
 /* Lenis recommended styles */
 html.lenis, html.lenis body {
   height: auto;

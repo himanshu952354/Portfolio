@@ -145,7 +145,6 @@ export default function Home() {
       {/* Modern Minimalist Outline Circles */}
       {/* Modern Minimalist Outline Circles */}
       <motion.div
-        className="home-circle-1"
         initial={{ opacity: 0, scale: 0 }}
         animate={{ 
           opacity: 0.4, 
@@ -172,7 +171,6 @@ export default function Home() {
         }} 
       />
       <motion.div
-        className="home-circle-2"
         initial={{ opacity: 0, scale: 0 }}
         animate={{ 
           opacity: 0.3, 
@@ -198,23 +196,6 @@ export default function Home() {
           pointerEvents: 'none'
         }} 
       />
-
-      <style dangerouslySetInnerHTML={{ __html: `
-        @media (max-width: 768px) {
-          .home-circle-1 {
-            width: 50vw !important;
-            height: 50vw !important;
-            left: 5% !important;
-            top: 20% !important;
-          }
-          .home-circle-2 {
-            width: 60vw !important;
-            height: 60vw !important;
-            left: 15% !important;
-            top: 35% !important;
-          }
-        }
-      `}} />
 
     </section>
   );
