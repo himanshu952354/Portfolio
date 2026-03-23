@@ -71,7 +71,7 @@ export default function AboutPage() {
       <section style={{ 
         position: 'relative', 
         padding: '12rem var(--spacing-x) 4rem var(--spacing-x)',
-        overflow: 'hidden'
+        overflow: 'visible'
       }}>
         <motion.h1 
           initial={{ opacity: 0, x: -50 }}
@@ -146,6 +146,60 @@ export default function AboutPage() {
             </motion.div>
           </div>
         </div>
+
+        {/* Background Circles */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ 
+            opacity: 0.4, 
+            scale: 1,
+            x: [0, 15, -10, 12, 0],
+            y: [0, -12, 10, -5, 0]
+          }}
+          transition={{
+            opacity: { duration: 1.8, delay: 0.5, ease: 'easeOut' },
+            scale: { duration: 1.8, delay: 0.5, ease: [0.34, 1.56, 0.64, 1] },
+            x: { repeat: Infinity, duration: 20, ease: "easeInOut", delay: 2.3 },
+            y: { repeat: Infinity, duration: 24, ease: "easeInOut", delay: 2.3 }
+          }}
+          style={{
+            position: 'absolute',
+            top: '8%',
+            left: '40%',
+            width: '450px',
+            height: '450px',
+            border: '1.5px solid var(--text-secondary)',
+            borderRadius: '50%',
+            zIndex: 0,
+            pointerEvents: 'none'
+          }} 
+        />
+        <motion.div
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ 
+            opacity: 0.3, 
+            scale: 1,
+            x: [0, -20, 15, -8, 0],
+            y: [0, 15, -15, 8, 0]
+          }}
+          transition={{
+            opacity: { duration: 1.8, delay: 0.8, ease: 'easeOut' },
+            scale: { duration: 1.8, delay: 0.8, ease: [0.34, 1.56, 0.64, 1] },
+            x: { repeat: Infinity, duration: 22, ease: "easeInOut", delay: 2.6 },
+            y: { repeat: Infinity, duration: 27, ease: "easeInOut", delay: 2.6 }
+          }}
+          style={{
+            position: 'absolute',
+            top: '22%',
+            left: '55%',
+            width: '550px',
+            height: '550px',
+            border: '1.5px solid var(--text-secondary)',
+            borderRadius: '50%',
+            zIndex: 0,
+            pointerEvents: 'none'
+          }} 
+        />
       </section>
 
       {/* Tech & Tools Grid */}

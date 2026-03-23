@@ -10,9 +10,8 @@ export default function Home() {
   return (
     <section id="home" style={{
       position: 'relative',
-      overflow: 'hidden',
+      overflow: 'visible',
       padding: '10rem var(--spacing-x) 2rem var(--spacing-x)',
-      zIndex: 1,
       minHeight: '100vh',
       display: 'flex',
       flexDirection: 'column',
@@ -143,30 +142,61 @@ export default function Home() {
       </div>
 
       {/* Modern Minimalist Outline Circles */}
-      <div style={{
-        position: 'absolute',
-        top: '10%',
-        left: '30%',
-        width: '500px',
-        height: '500px',
-        border: '1px solid var(--text-muted)',
-        opacity: 0.2,
-        borderRadius: '50%',
-        zIndex: 5,
-        pointerEvents: 'none'
-      }} />
-      <div style={{
-        position: 'absolute',
-        top: '25%',
-        left: '45%',
-        width: '600px',
-        height: '600px',
-        border: '1px solid var(--text-muted)',
-        opacity: 0.15,
-        borderRadius: '50%',
-        zIndex: 5,
-        pointerEvents: 'none'
-      }} />
+      {/* Modern Minimalist Outline Circles */}
+      {/* Modern Minimalist Outline Circles */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ 
+          opacity: 0.4, 
+          scale: 1,
+          x: [0, 20, -10, 15, 0],
+          y: [0, -15, 12, -5, 0]
+        }}
+        transition={{
+          opacity: { duration: 1.8, delay: 2.8, ease: 'easeOut' },
+          scale: { duration: 1.8, delay: 2.8, ease: [0.34, 1.56, 0.64, 1] }, // gentle bounce overshoot
+          x: { repeat: Infinity, duration: 20, ease: "easeInOut", delay: 4.6 }, 
+          y: { repeat: Infinity, duration: 25, ease: "easeInOut", delay: 4.6 }
+        }}
+        style={{
+          position: 'absolute',
+          top: '10%',
+          left: '30%',
+          width: '500px',
+          height: '500px',
+          border: '1.5px solid var(--text-secondary)',
+          borderRadius: '50%',
+          zIndex: 5,
+          pointerEvents: 'none'
+        }} 
+      />
+      <motion.div
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ 
+          opacity: 0.3, 
+          scale: 1,
+          x: [0, -25, 15, -10, 0],
+          y: [0, 15, -20, 10, 0]
+        }}
+        transition={{
+          opacity: { duration: 1.8, delay: 3.0, ease: 'easeOut' },
+          scale: { duration: 1.8, delay: 3.0, ease: [0.34, 1.56, 0.64, 1] },
+          x: { repeat: Infinity, duration: 22, ease: "easeInOut", delay: 4.8 }, 
+          y: { repeat: Infinity, duration: 27, ease: "easeInOut", delay: 4.8 }
+        }}
+        style={{
+          position: 'absolute',
+          top: '25%',
+          left: '45%',
+          width: '600px',
+          height: '600px',
+          border: '1.5px solid var(--text-secondary)',
+          borderRadius: '50%',
+          zIndex: 5,
+          pointerEvents: 'none'
+        }} 
+      />
+
     </section>
   );
 }
