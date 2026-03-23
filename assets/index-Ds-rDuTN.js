@@ -19,7 +19,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
           @media (max-width: 640px) {
             .tech-grid { grid-template-columns: repeat(2, 1fr) !important; }
           }
-        `}})]}),(0,Y.jsx)(yb,{}),(0,Y.jsx)(Sb,{}),(0,Y.jsx)(wb,{}),(0,Y.jsx)(db,{paddingBottom:`4rem`})]})}var Jb=()=>{(0,w.useEffect)(()=>{Vn.default.init({duration:800,once:!0})},[]);let e=`#283593`;return(0,Y.jsxs)(`div`,{className:`resume-page`,style:{padding:`120px 20px 60px`,minHeight:`100vh`,backgroundColor:`#f5f5f5`,display:`flex`,flexDirection:`column`,alignItems:`center`},children:[(0,Y.jsx)(`style`,{children:`
+        `}})]}),(0,Y.jsx)(yb,{}),(0,Y.jsx)(Sb,{}),(0,Y.jsx)(wb,{}),(0,Y.jsx)(db,{paddingBottom:`4rem`})]})}var Jb=()=>{(0,w.useEffect)(()=>{Vn.default.init({duration:800,once:!0})},[]);let e=`#283593`;return(0,Y.jsxs)(`div`,{className:`resume-page`,style:{padding:`120px 20px 60px`,minHeight:`100vh`,backgroundColor:`var(--bg-color)`,display:`flex`,flexDirection:`column`,alignItems:`center`},children:[(0,Y.jsx)(`style`,{children:`
         @media print {
           .resume-page { padding: 0 !important; background: white !important; }
           .print-button, .resume-page > h2 { display: none !important; }
