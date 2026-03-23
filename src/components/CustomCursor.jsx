@@ -5,7 +5,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 const isTouchDevice = () =>
   typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches;
 
-export default function CustomCursor({ isHoveringRing, isHoveringMenu }) {
+export default function CustomCursor({ isHoveringRing, isHoveringMenu, menuPosition }) {
   const [isVisible, setIsVisible] = useState(false);
   const [isHoveringImage, setIsHoveringImage] = useState(false);
   const [isTouch] = useState(() => isTouchDevice());
@@ -21,8 +21,16 @@ export default function CustomCursor({ isHoveringRing, isHoveringMenu }) {
     if (isTouch) return;
 
     const moveCursor = (e) => {
-      cursorX.set(e.clientX - 20);
-      cursorY.set(e.clientY - 20);
+      if (isHoveringMenu && menuPosition) {
+        const strength = 0.4; // Magnetic Pull coefficient (elastic limits multiplier)
+        const pullX = menuPosition.x + (e.clientX - menuPosition.x) * strength;
+        const pullY = menuPosition.y + (e.clientY - menuPosition.y) * strength;
+        cursorX.set(pullX - 20);
+        cursorY.set(pullY - 20);
+      } else {
+        cursorX.set(e.clientX - 20);
+        cursorY.set(e.clientY - 20);
+      }
     };
 
     const handleMouseEnter = () => setIsVisible(true);
@@ -47,7 +55,7 @@ export default function CustomCursor({ isHoveringRing, isHoveringMenu }) {
       document.body.removeEventListener('mouseleave', handleMouseLeave);
       document.body.removeEventListener('mouseover', handleMouseOver);
     };
-  }, [cursorX, cursorY, isTouch]);
+  }, [cursorX, cursorY, isTouch, isHoveringMenu, menuPosition]);
 
   // Hide the default cursor when this component is active (mouse devices only)
   useEffect(() => {

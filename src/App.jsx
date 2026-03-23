@@ -16,6 +16,7 @@ import SmoothScroll from './components/SmoothScroll';
 function App() {
   const [isHoveringRing, setIsHoveringRing] = useState(false);
   const [isHoveringMenu, setIsHoveringMenu] = useState(false);
+  const [menuPosition, setMenuPosition] = useState(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -43,8 +44,8 @@ function App() {
   return (
     <div className="app-container">
       <SmoothScroll />
-      <CustomCursor isHoveringRing={isHoveringRing} isHoveringMenu={isHoveringMenu} />
-      <Navbar setIsHoveringRing={setIsHoveringRing} setIsHoveringMenu={setIsHoveringMenu} />
+      <CustomCursor isHoveringRing={isHoveringRing} isHoveringMenu={isHoveringMenu} menuPosition={menuPosition} />
+      <Navbar setIsHoveringRing={setIsHoveringRing} setIsHoveringMenu={setIsHoveringMenu} setMenuPosition={setMenuPosition} />
       <Routes>
         <Route path="/" element={
           <main>

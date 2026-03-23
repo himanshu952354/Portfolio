@@ -392,7 +392,7 @@ export const StaggeredMenu = ({
         {/* Empty div to balance space since logo is omitted in staggered menu here and handled in Navbar */}
         <div></div>
 
-        <div 
+        <div
           className="sm-toggle-magnetic"
           style={{ padding: '35px', margin: '-35px', display: 'inline-flex', alignItems: 'center' }}
           onMouseEnter={() => {
@@ -417,20 +417,20 @@ export const StaggeredMenu = ({
             onClick={(e) => { e.stopPropagation(); toggleMenu(); }}
             type="button"
           >
-          <span ref={textWrapRef} className="sm-toggle-textWrap" aria-hidden="true">
-            <span ref={textInnerRef} className="sm-toggle-textInner">
-              {textLines.map((l, i) => (
-                <span className="sm-toggle-line" key={i}>
-                  {l}
-                </span>
-              ))}
+            <span ref={textWrapRef} className="sm-toggle-textWrap" aria-hidden="true">
+              <span ref={textInnerRef} className="sm-toggle-textInner">
+                {textLines.map((l, i) => (
+                  <span className="sm-toggle-line" key={i}>
+                    {l}
+                  </span>
+                ))}
+              </span>
             </span>
-          </span>
-          <span ref={iconRef} className="sm-icon" aria-hidden="true">
-            <span ref={plusHRef} className="sm-icon-line" />
-            <span ref={plusVRef} className="sm-icon-line sm-icon-line-v" />
-          </span>
-        </button>
+            <span ref={iconRef} className="sm-icon" aria-hidden="true">
+              <span ref={plusHRef} className="sm-icon-line" />
+              <span ref={plusVRef} className="sm-icon-line sm-icon-line-v" />
+            </span>
+          </button>
         </div>
       </header>
 
@@ -441,8 +441,8 @@ export const StaggeredMenu = ({
               items.map((it, idx) => {
                 const isActive = it.link.includes('#')
                   ? location.pathname === it.link.split('#')[0] && location.hash === '#' + it.link.split('#')[1]
-                  : it.link === '/' 
-                    ? location.pathname === '/' && !location.hash 
+                  : it.link === '/'
+                    ? location.pathname === '/' && !location.hash
                     : location.pathname === it.link;
 
                 return (
