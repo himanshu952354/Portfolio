@@ -21,7 +21,8 @@ export const StaggeredMenu = ({
   isFixed = false,
   closeOnClickAway = true,
   onMenuOpen,
-  onMenuClose
+  onMenuClose,
+  setIsHoveringMenu
 }) => {
   const location = useLocation();
   const [open, setOpen] = useState(false);
@@ -398,6 +399,8 @@ export const StaggeredMenu = ({
           aria-controls="staggered-menu-panel"
           onClick={toggleMenu}
           type="button"
+          onMouseEnter={() => setIsHoveringMenu && setIsHoveringMenu(true)}
+          onMouseLeave={() => setIsHoveringMenu && setIsHoveringMenu(false)}
         >
           <span ref={textWrapRef} className="sm-toggle-textWrap" aria-hidden="true">
             <span ref={textInnerRef} className="sm-toggle-textInner">

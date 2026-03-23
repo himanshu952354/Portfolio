@@ -5,7 +5,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 const isTouchDevice = () =>
   typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches;
 
-export default function CustomCursor({ isHoveringRing }) {
+export default function CustomCursor({ isHoveringRing, isHoveringMenu }) {
   const [isVisible, setIsVisible] = useState(false);
   const [isHoveringImage, setIsHoveringImage] = useState(false);
   const [isTouch] = useState(() => isTouchDevice());
@@ -99,7 +99,7 @@ export default function CustomCursor({ isHoveringRing }) {
         opacity: isVisible ? 1 : 0,
       }}
       animate={{
-        scale: isHoveringRing ? 0 : (isHoveringImage ? 2.5 : 1),
+        scale: isHoveringMenu ? 1.6 : (isHoveringRing ? 0 : (isHoveringImage ? 2.5 : 1)),
       }}
       transition={{ duration: 0.2 }}
     />

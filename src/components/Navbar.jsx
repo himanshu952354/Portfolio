@@ -23,7 +23,7 @@ const socialItems = [
   { label: 'Email', link: 'mailto:shekhar952354@gmail.com' }
 ];
 
-export default function Navbar({ setIsHoveringRing }) {
+export default function Navbar({ setIsHoveringRing, setIsHoveringMenu }) {
   const [scrolled, setScrolled] = useState(false);
   const { pathname } = useLocation();
 
@@ -125,6 +125,7 @@ export default function Navbar({ setIsHoveringRing }) {
             colors={['#1a1a1a', '#000000']}
             accentColor="var(--accent-color)"
             isRouterLink={true} // Add this if StaggeredMenu supports it
+            setIsHoveringMenu={setIsHoveringMenu}
           />
         </div>
       </div>
