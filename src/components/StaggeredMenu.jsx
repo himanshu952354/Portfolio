@@ -335,12 +335,13 @@ export const StaggeredMenu = ({
     if (!closeOnClickAway || !open) return;
 
     const handleClickOutside = event => {
-      // Exclude clicks originating from the logo from closing the menu (optional behavior, adjust as needed)
+      // Exclude clicks originating from the logo and the magnetic expanded zone
       if (
         panelRef.current &&
         !panelRef.current.contains(event.target) &&
         toggleBtnRef.current &&
-        !toggleBtnRef.current.contains(event.target)
+        !toggleBtnRef.current.contains(event.target) &&
+        (!event.target.closest || !event.target.closest('.sm-toggle-magnetic'))
       ) {
         closeMenu();
       }
