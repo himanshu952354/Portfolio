@@ -149,6 +149,7 @@ export default function AboutPage() {
 
         {/* Background Circles */}
         <motion.div
+          className="about-circle-1"
           initial={{ opacity: 0, scale: 0 }}
           animate={{ 
             opacity: 0.4, 
@@ -175,6 +176,7 @@ export default function AboutPage() {
           }} 
         />
         <motion.div
+          className="about-circle-2"
           initial={{ opacity: 0, scale: 0 }}
           animate={{ 
             opacity: 0.3, 
@@ -200,6 +202,23 @@ export default function AboutPage() {
             pointerEvents: 'none'
           }} 
         />
+
+        <style dangerouslySetInnerHTML={{ __html: `
+          @media (max-width: 768px) {
+            .about-circle-1 {
+              width: 220px !important;
+              height: 220px !important;
+              left: 10% !important;
+              top: 15% !important;
+            }
+            .about-circle-2 {
+              width: 260px !important;
+              height: 260px !important;
+              left: 20% !important;
+              top: 28% !important;
+            }
+          }
+        `}} />
       </section>
 
       {/* Tech & Tools Grid */}
