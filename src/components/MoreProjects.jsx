@@ -53,11 +53,8 @@ const ProjectItem = ({ title, link, image }) => {
   const scale = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [0.95, 1, 1, 0.95]);
 
   return (
-    <motion.a
+    <motion.div
       ref={itemRef}
-      href={link}
-      target="_blank"
-      rel="noopener noreferrer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onMouseMove={handleMouseMove}
@@ -139,7 +136,10 @@ const ProjectItem = ({ title, link, image }) => {
           </motion.div>
         )}
 
-        <motion.div
+        <motion.a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
           animate={{
             scale: isHovered ? 1.1 : 1,
             backgroundColor: isHovered ? '#000' : 'transparent',
@@ -155,10 +155,12 @@ const ProjectItem = ({ title, link, image }) => {
             alignItems: 'center',
             justifyContent: 'center',
             fontSize: '1.2rem',
+            cursor: 'pointer',
+            zIndex: 15
           }}
         >
           <FiArrowUpRight />
-        </motion.div>
+        </motion.a>
       </motion.div>
 
       <motion.div
@@ -177,7 +179,7 @@ const ProjectItem = ({ title, link, image }) => {
           transform: 'translateZ(0)'
         }}
       />
-    </motion.a>
+    </motion.div>
   );
 };
 

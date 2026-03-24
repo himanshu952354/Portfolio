@@ -32,11 +32,8 @@ const ListItem = ({ title, subtitle, description, link }) => {
   const scale = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [0.95, 1, 1, 0.95]);
 
   return (
-    <motion.a
+    <motion.div
       ref={itemRef}
-      href={link}
-      target="_blank"
-      rel="noopener noreferrer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       style={{
@@ -69,7 +66,10 @@ const ListItem = ({ title, subtitle, description, link }) => {
           {description && <p style={{ color: 'var(--text-muted)', margin: '0.6rem 0 0 0', fontSize: '0.95rem', maxWidth: '600px', lineHeight: 1.5 }}>{description}</p>}
         </div>
 
-        <motion.div
+        <motion.a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
           animate={{
             scale: isHovered ? 1.1 : 1,
             backgroundColor: isHovered ? '#000' : 'transparent',
@@ -85,11 +85,13 @@ const ListItem = ({ title, subtitle, description, link }) => {
             alignItems: 'center',
             justifyContent: 'center',
             fontSize: '1.2rem',
-            flexShrink: 0
+            flexShrink: 0,
+            cursor: 'pointer',
+            zIndex: 15
           }}
         >
           <FiArrowUpRight />
-        </motion.div>
+        </motion.a>
       </motion.div>
 
       <motion.div
@@ -103,12 +105,13 @@ const ListItem = ({ title, subtitle, description, link }) => {
           right: 0,
           height: '2px',
           backgroundColor: 'var(--text-primary)',
+          crossOrigin: 'anonymous',
           zIndex: 2,
           transformOrigin: 'left',
           transform: 'translateZ(0)'
         }}
       />
-    </motion.a>
+    </motion.div>
   );
 };
 
