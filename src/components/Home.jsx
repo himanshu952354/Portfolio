@@ -99,8 +99,6 @@ export default function Home() {
                 cursor: 'pointer',
                 transition: 'var(--transition)'
               }}
-                onMouseOver={(e) => e.currentTarget.style.opacity = '0.8'}
-                onMouseOut={(e) => e.currentTarget.style.opacity = '1'}
               >
                 About Me
               </button>
@@ -112,7 +110,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 2.7 }}
+          transition={{ duration: 1, delay: 3.8 }}
           style={{ marginTop: '2.5rem', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '0.5rem' }}
         >
           <Link to="/#projects" style={{ cursor: 'pointer', display: 'block' }}>
@@ -153,10 +151,10 @@ export default function Home() {
           y: [0, -15, 12, -5, 0]
         }}
         transition={{
-          opacity: { duration: 1.8, delay: 2.8, ease: 'easeOut' },
-          scale: { duration: 1.8, delay: 2.8, ease: [0.34, 1.56, 0.64, 1] }, 
-          x: { repeat: Infinity, duration: 20, ease: "easeInOut", delay: 4.6 }, 
-          y: { repeat: Infinity, duration: 25, ease: "easeInOut", delay: 4.6 }
+          opacity: { duration: 1.8, delay: 3.8, ease: 'easeOut' },
+          scale: { duration: 1.8, delay: 3.8, ease: [0.34, 1.56, 0.64, 1] }, 
+          x: { repeat: Infinity, duration: 20, ease: "easeInOut", delay: 5.6 }, 
+          y: { repeat: Infinity, duration: 25, ease: "easeInOut", delay: 5.6 }
         }}
         style={{
           position: 'absolute',
@@ -180,10 +178,10 @@ export default function Home() {
           y: [0, 15, -20, 10, 0]
         }}
         transition={{
-          opacity: { duration: 1.8, delay: 3.0, ease: 'easeOut' },
-          scale: { duration: 1.8, delay: 3.0, ease: [0.34, 1.56, 0.64, 1] },
-          x: { repeat: Infinity, duration: 22, ease: "easeInOut", delay: 4.8 }, 
-          y: { repeat: Infinity, duration: 27, ease: "easeInOut", delay: 4.8 }
+          opacity: { duration: 1.8, delay: 4.0, ease: 'easeOut' },
+          scale: { duration: 1.8, delay: 4.0, ease: [0.34, 1.56, 0.64, 1] },
+          x: { repeat: Infinity, duration: 22, ease: "easeInOut", delay: 5.8 }, 
+          y: { repeat: Infinity, duration: 27, ease: "easeInOut", delay: 5.8 }
         }}
         style={{
           position: 'absolute',

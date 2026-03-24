@@ -37,6 +37,10 @@ export default function CustomCursor({ isHoveringRing, isHoveringMenu, menuPosit
     const handleMouseLeave = () => setIsVisible(false);
 
     const handleMouseOver = (e) => {
+      if (e.target.closest('a, button, input, textarea, [role="button"], img')) {
+        e.target.style.cursor = 'none';
+      }
+
       if (e.target.tagName === 'IMG') {
         setIsHoveringImage(true);
       } else {
