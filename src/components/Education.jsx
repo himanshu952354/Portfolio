@@ -1,5 +1,5 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { motion, useScroll } from 'framer-motion';
+import { useRef, useState, useLayoutEffect } from 'react';
 
 const educationData = [
   {
@@ -61,7 +61,10 @@ export default function Education() {
             letterSpacing: '0.05em',
             textTransform: 'uppercase',
             whiteSpace: 'nowrap',
-            zIndex: 3
+            zIndex: 3,
+            backgroundColor: 'var(--bg-color, #fff)',
+            padding: '2px 6px',
+            borderRadius: '4px'
           }}>Present</div>
 
           {/* Bottom Label */}
@@ -76,54 +79,43 @@ export default function Education() {
             letterSpacing: '0.05em',
             textTransform: 'uppercase',
             whiteSpace: 'nowrap',
-            zIndex: 3
+            zIndex: 3,
+            backgroundColor: 'var(--bg-color, #fff)',
+            padding: '2px 6px',
+            borderRadius: '4px'
           }}>2018</div>
 
           {/* Vertical Line Backing */}
           <div style={{
             position: 'absolute',
             left: '20px',
-            top: 0,
-            bottom: 0,
+            top: '-20px',
+            bottom: '-20px',
             width: '2px',
             background: 'rgba(0,0,0,0.04)',
             zIndex: 1
           }}></div>
 
-          {/* Infinite Flowing pulse overlay guides */}
-          <motion.div
-            animate={{ backgroundPosition: ['0% 0%', '0% 100%'] }}
-            transition={{ repeat: Infinity, duration: 2, ease: 'linear' }}
-            style={{
-              position: 'absolute',
-              left: '20px',
-              top: 0,
-              bottom: 0,
-              width: '2px',
-              background: 'linear-gradient(to bottom, transparent, #000, transparent)',
-              backgroundSize: '100% 200%',
-              zIndex: 1,
-              opacity: 0.3
-            }}
-          />
+
 
           {/* Animated Progress Line */}
           <motion.div style={{
             position: 'absolute',
             left: '20px',
-            top: 0,
-            bottom: 0,
+            top: '-20px',
+            bottom: '-20px',
             width: '2px',
             background: '#000',
             scaleY: scrollYProgress,
             originY: 0,
             zIndex: 2,
-            boxShadow: '0 0 10px rgba(0,0,0,0.3)'
+            boxShadow: '0 0 5px rgba(0,0,0,0.15)'
           }} />
 
           {educationData.map((edu, index) => (
             <motion.div
               key={index}
+              className="education-item"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
