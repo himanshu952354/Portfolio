@@ -237,7 +237,7 @@ export default function Contact({ paddingBottom = '10rem' }) {
             <motion.button
               type="submit"
               variants={formItem}
-              whileHover={{ scale: 1.02, backgroundColor: 'var(--primary)' }}
+              whileHover={{ backgroundColor: 'var(--primary)' }}
               whileTap={{ scale: 0.98 }}
               style={{
                 padding: '1.3rem',
@@ -249,8 +249,7 @@ export default function Contact({ paddingBottom = '10rem' }) {
                 borderRadius: '6px',
                 cursor: 'pointer',
                 marginTop: '1rem',
-                width: '100%',
-                transition: 'background-color 0.3s ease'
+                width: '100%'
               }}
             >
               {isSubmitted ? 'Message Sent!' : 'Send Message'}
