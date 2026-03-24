@@ -461,7 +461,7 @@ export const StaggeredMenu = ({
                           if (it.link === '/' && location.pathname === '/') {
                             setTimeout(() => {
                               window.scrollTo({ top: 0, behavior: 'smooth' });
-                            }, 150);
+                            }, 350);
                           } else if (it.link.startsWith('/#') && location.pathname === '/') {
                             const id = it.link.replace('/#', '');
                             const element = document.getElementById(id);
