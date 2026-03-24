@@ -10,7 +10,7 @@ const projectsData = [
     github: "https://github.com/himanshu952354/Plan-Pilot",
     live: "https://plan-pilot-blush.vercel.app/",
     images: [
-      "/Portfolio_NEW/projects/plan_pilot.png",
+      "/Portfolio/projects/plan_pilot.png",
       "https://images.unsplash.com/photo-1504868584819-f8e905b6fc79?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
@@ -23,7 +23,7 @@ const projectsData = [
     github: "https://github.com/himanshu952354/Echo",
     live: "https://echo-gold.vercel.app/",
     images: [
-      "/Portfolio_NEW/projects/echo_gold.png",
+      "/Portfolio/projects/echo_gold.png",
       "https://images.unsplash.com/photo-1523474253046-2cd2c78b68ec?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=800&q=80"
@@ -36,7 +36,7 @@ const projectsData = [
     github: "https://github.com/himanshu952354/AgroTools/tree/master",
     live: "https://agrotools.free.nf/Home.php",
     images: [
-      "/Portfolio_NEW/projects/agrotools.png",
+      "/Portfolio/projects/agrotools.png",
       "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?auto=format&fit=crop&w=800&q=80"

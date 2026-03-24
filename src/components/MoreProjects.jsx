@@ -6,12 +6,12 @@ const moreProjectsData = [
   {
     title: "Playlist",
     link: "https://himanshu952354.github.io/PortFolio/playlist.html",
-    image: "/Portfolio_NEW/projects/playlist-thumbnail.png"
+    image: "/Portfolio/projects/playlist-thumbnail.png"
   },
   {
     title: "Gift Recommender",
     link: "https://himanshu952354.github.io/Giftit/",
-    image: "/Portfolio_NEW/projects/giftit-thumbnail.png"
+    image: "/Portfolio/projects/giftit-thumbnail.png"
   },
   {
     title: "Weather App",
@@ -21,7 +21,7 @@ const moreProjectsData = [
   {
     title: "Contact Manager GUI",
     link: "https://github.com/himanshu952354/Contact-Search-GUI",
-    image: "/Portfolio_NEW/projects/contact-manager-thumbnail.png"
+    image: "/Portfolio/projects/contact-manager-thumbnail.png"
   }
 ];
 
