@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiArrowUpRight, FiArrowRight, FiPenTool, FiGrid } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
@@ -36,6 +37,7 @@ const staggerItem = {
 
 export default function AboutPage() {
   const navigate = useNavigate();
+  const [isTrainingHovered, setIsTrainingHovered] = useState(false);
 
   const techStack = [
     { name: 'Java', icon: <DiJava /> },
@@ -206,7 +208,7 @@ export default function AboutPage() {
       </section>
 
       {/* Tech & Tools Grid */}
-      <section style={{ padding: '4rem var(--spacing-x) 8rem var(--spacing-x)' }}>
+      <section id="tech" style={{ padding: '4rem var(--spacing-x) 8rem var(--spacing-x)' }}>
         <h2 style={{ 
           fontSize: 'clamp(2.5rem, 6vw, 5.5rem)', 
           fontWeight: 400, 
@@ -254,6 +256,133 @@ export default function AboutPage() {
             .tech-grid { grid-template-columns: repeat(2, 1fr) !important; }
           }
         `}} />
+      </section>
+
+      {/* Training Section */}
+      <section id="training" style={{ padding: '2rem var(--spacing-x) 3rem var(--spacing-x)' }}>
+        <h2 style={{ 
+          fontSize: 'clamp(2.5rem, 6vw, 5.5rem)', 
+          fontWeight: 400, 
+          marginBottom: '1.8rem', 
+          letterSpacing: '-0.04em',
+          color: 'var(--text-primary)'
+        }}>Training</h2>
+
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            whileHover={{ x: 10 }}
+            onMouseEnter={() => setIsTrainingHovered(true)}
+            onMouseLeave={() => setIsTrainingHovered(false)}
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'flex-start',
+              width: '100%',
+              padding: '2rem 0',
+              borderBottom: '1px solid rgba(0,0,0,0.1)',
+              position: 'relative'
+            }}
+          >
+            <div>
+              <h3 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.3rem)', fontWeight: 500, margin: 0, color: '#000' }}>
+                Lovely Professional University
+              </h3>
+              <p style={{ color: 'var(--text-secondary)', margin: '0.4rem 0 0 0', fontSize: '1.1rem', fontWeight: 500 }}>
+                Placement Ace: Java Bootcamp (Leetcode Edition)
+              </p>
+              <p style={{ color: 'var(--text-muted)', margin: '0.3rem 0 0 0', fontSize: '0.92rem' }}>
+                Jun' 2025 – Jul' 2025
+              </p>
+
+              <div style={{ marginTop: '1.2rem' }}>
+                <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#222', margin: 0 }}>Core Learnings:</h4>
+                <ul style={{ 
+                  color: 'var(--text-secondary)', 
+                  margin: '0.4rem 0 0 0', 
+                  fontSize: '0.96rem', 
+                  maxWidth: '800px', 
+                  lineHeight: 1.5,
+                  listStyleType: 'disc',
+                  paddingLeft: '1.5rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '0.3rem'
+                }}>
+                  <li>Mastered advanced Data Structures (Trees, Graphs, DP) in Java maintaining highly optimal time/space complexity setups.</li>
+                  <li>Solved 200+ interview-level problems across technical live platforms with rapid benchmarking metrics.</li>
+                </ul>
+              </div>
+
+              <div style={{ marginTop: '1.2rem' }}>
+                <h4 style={{ fontSize: '1rem', fontWeight: 600, color: '#222', margin: 0 }}>Project: Contact Management System</h4>
+                <ul style={{ 
+                  color: 'var(--text-secondary)', 
+                  margin: '0.4rem 0 0 0', 
+                  fontSize: '0.96rem', 
+                  maxWidth: '800px', 
+                  lineHeight: 1.5,
+                  listStyleType: 'disc',
+                  paddingLeft: '1.5rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '0.3rem'
+                }}>
+                  <li>Designed search query indexation structures utilizing optimal Trie node algorithmic traversal paths accurately for prefix lookups in under 5ms.</li>
+                  <li>Refined sub-optimal behavior methodologies modeling clean layout Object-Oriented implementations with interactive layout structures written entirely in **Java Swing**.</li>
+                  <li style={{ listStyleType: 'none', marginLeft: '-1.5rem', marginTop: '0.3rem' }}><strong>Tech:</strong> Java, Trie Algorithms, Java Swing</li>
+                </ul>
+              </div>
+            </div>
+
+            <motion.a 
+              href="https://drive.google.com/file/d/1HY9LW4fPVX3I7Y1fFASYLD8pMVVeJf8x/view?usp=sharing" 
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.1, backgroundColor: '#000', color: '#fff' }}
+              transition={{ duration: 0.3 }}
+              style={{
+                width: '50px',
+                height: '50px',
+                borderRadius: '50%',
+                border: '1px solid #000',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '1.2rem',
+                flexShrink: 0,
+                cursor: 'pointer',
+                color: '#000',
+                backgroundColor: 'transparent',
+                marginTop: '0.5rem'
+              }}
+              title="View Certificate"
+            >
+              <FiArrowUpRight />
+            </motion.a>
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: isTrainingHovered ? 1 : 0 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              style={{
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                height: '2px',
+                backgroundColor: '#000',
+                zIndex: 2,
+                transformOrigin: 'left',
+                transform: 'translateZ(0)'
+              }}
+            />
+          </motion.div>
+        </div>
+
+
       </section>
 
       <Certificates />
