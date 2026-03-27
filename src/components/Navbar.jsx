@@ -10,7 +10,7 @@ const navLinks = [
     title: 'About Me', 
     path: '/about',
     subItems: [
-      { label: 'Tech Stack', link: '/about#tech' },
+      { label: 'Tech & Tools', link: '/about#tech' },
       { label: 'Training', link: '/about#training' },
       { label: 'Certificates', link: '/about#certificates' },
       { label: 'Achievements', link: '/about#cp' },
