@@ -281,7 +281,7 @@ const Resume = () => {
               <li>Designed a desktop contact system supporting CRUD and instant search operations.</li>
               <li>Applied Trie-based indexing for rapid prefix filtering.</li>
               <li>Engineered a structured GUI with input validation and persistent storage handling.</li>
-              <li><span className="bold-blue">Tech stack used:</span> Java, Java-Swing, AWT, Trie Data Structure, OOPs, FileHandling</li>
+              <li><span className="bold-blue">Tech & Tools used:</span> Java, Java-Swing, AWT, Trie Data Structure, OOPs, FileHandling</li>
             </ul>
           </div>
         </section>
@@ -299,7 +299,7 @@ const Resume = () => {
             <ul style={{ listStyleType: 'disc' }}>
               <li>Applied core Data Structures and Algorithms concepts for placements.</li>
               <li>Solved 100+ problems on LeetCode and Codeforces to improve problem-solving skills.</li>
-              <li><span className="bold-blue">Tech stacks used:</span> Java, Data Structures and Algorithms</li>
+              <li><span className="bold-blue">Tech & Tools used:</span> Java, Data Structures and Algorithms</li>
             </ul>
           </div>
         </section>

@@ -142,7 +142,8 @@
   z-index: 10;
   pointer-events: auto;
   border-left: 1px solid var(--glass-border);
-  transform: translateZ(0); /* Hardware acceleration */
+  transform: translateZ(0);
+  /* Hardware acceleration */
   will-change: transform;
 }
 
@@ -370,14 +371,26 @@
   }
 }
 
-@media (max-width: 640px) {
-  .staggered-menu-panel {
-    width: 100%;
-    left: 0;
-    right: 0;
-  }
+.sm-submenu-container {
+  border-left: 2px solid var(--sm-accent, #5227ff);
+  margin-left: 0.5rem;
+}
 
-  .staggered-menu-wrapper[data-open] .sm-logo-img {
-    filter: invert(100%);
-  }
+.sm-submenu-item {
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+}
+
+.sm-submenu-item:hover {
+  transform: translateX(10px);
+}
+
+.sm-panel-itemWrap {
+  transition: all 0.3s ease;
+}
+
+/* Ensure numbering still works and doesn't conflict with layout */
+.sm-panel-list[data-numbering] .sm-panel-item::after {
+  right: auto;
+  left: 100%;
 }

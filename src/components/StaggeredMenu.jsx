@@ -27,6 +27,7 @@ export const StaggeredMenu = ({
 }) => {
   const location = useLocation();
   const [open, setOpen] = useState(false);
+  const [expandedItem, setExpandedItem] = useState(null); // Track which menu item is expanded
   const openRef = useRef(false);
   const panelRef = useRef(null);
   const preLayersRef = useRef(null);
@@ -445,55 +446,87 @@ export const StaggeredMenu = ({
                     ? location.pathname === '/' && !location.hash
                     : location.pathname === it.link;
 
+                const hasSubItems = it.subItems && it.subItems.length > 0;
+                const isExpanded = expandedItem === idx;
+
                 return (
-                  <li className="sm-panel-itemWrap" key={it.label + idx}>
-                    {isRouterLink ? (
-                      <RouterLink
-                        className="sm-panel-item"
-                        to={it.link}
-                        target={it.target}
-                        rel={it.target === '_blank' ? 'noopener noreferrer' : undefined}
-                        aria-label={it.ariaLabel}
-                        data-index={idx + 1}
-                        style={isActive ? { color: '#5227ff' } : undefined}
-                        onClick={() => {
-                          closeMenu();
-                          if (it.link === '/' && location.pathname === '/') {
-                            setTimeout(() => {
-                              window.scrollTo({ top: 0, behavior: 'smooth' });
-                            }, 350);
-                          } else if (it.link.startsWith('/#') && location.pathname === '/') {
-                            const id = it.link.replace('/#', '');
-                            const element = document.getElementById(id);
-                            if (element) {
-                              setTimeout(() => {
-                                element.scrollIntoView({ behavior: 'smooth' });
-                              }, 50);
-                            }
-                          }
-                        }}
-                      >
-                        <span className="sm-panel-itemLabel">{it.label}</span>
-                      </RouterLink>
-                    ) : (
-                      <Link
-                        className="sm-panel-item"
-                        to={it.link}
-                        spy={true}
-                        smooth={true}
-                        offset={-70}
-                        duration={500}
-                        target={it.target}
-                        aria-label={it.ariaLabel}
-                        data-index={idx + 1}
-                        style={isActive ? { color: '#5227ff' } : undefined}
-                        onClick={() => {
-                          closeMenu();
-                        }}
-                      >
-                        <span className="sm-panel-itemLabel">{it.label}</span>
-                      </Link>
-                    )}
+                  <li 
+                    className="sm-panel-itemWrap" 
+                    key={it.label + idx}
+                    onMouseEnter={() => hasSubItems && setExpandedItem(idx)}
+                    onMouseLeave={() => hasSubItems && setExpandedItem(null)}
+                  >
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                        {isRouterLink ? (
+                          <RouterLink
+                            className="sm-panel-item"
+                            to={it.link}
+                            target={it.target}
+                            rel={it.target === '_blank' ? 'noopener noreferrer' : undefined}
+                            aria-label={it.ariaLabel}
+                            data-index={idx + 1}
+                            style={isActive ? { color: '#5227ff' } : undefined}
+                            onClick={() => {
+                              closeMenu();
+                              if (it.link === '/' && location.pathname === '/') {
+                                setTimeout(() => {
+                                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }, 350);
+                              }
+                            }}
+                          >
+                            <span className="sm-panel-itemLabel">{it.label}</span>
+                          </RouterLink>
+                        ) : (
+                          <Link
+                            className="sm-panel-item"
+                            to={it.link}
+                            spy={true}
+                            smooth={true}
+                            offset={-70}
+                            duration={500}
+                            target={it.target}
+                            aria-label={it.ariaLabel}
+                            data-index={idx + 1}
+                            style={isActive ? { color: '#5227ff' } : undefined}
+                            onClick={() => {
+                              closeMenu();
+                            }}
+                          >
+                            <span className="sm-panel-itemLabel">{it.label}</span>
+                          </Link>
+                        )}
+
+                        {hasSubItems && (
+                          <div
+                            style={{
+                              color: 'var(--text-primary)',
+                              padding: '10px',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              transition: 'transform 0.3s ease',
+                              transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
+                              opacity: 0.5
+                            }}
+                          >
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                              <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                          </div>
+                        )}
+                      </div>
+
+                      {hasSubItems && (
+                        <SubMenu
+                          items={it.subItems}
+                          isExpanded={isExpanded}
+                          onClose={closeMenu}
+                          isRouterLink={isRouterLink}
+                        />
+                      )}
+                    </div>
                   </li>
                 );
               })
@@ -521,6 +554,152 @@ export const StaggeredMenu = ({
           )}
         </div>
       </aside>
+    </div>
+  );
+};
+
+
+const SubMenu = ({ items, isExpanded, onClose, isRouterLink }) => {
+  const containerRef = useRef(null);
+  const { pathname } = useLocation();
+
+  useLayoutEffect(() => {
+    if (!containerRef.current) return;
+    const revealEls = containerRef.current.querySelectorAll('.sm-submenu-reveal');
+
+    if (isExpanded) {
+      gsap.to(containerRef.current, {
+        height: 'auto',
+        opacity: 1,
+        duration: 0.7,
+        ease: 'back.out(1.2)',
+        display: 'block',
+        marginTop: '1.4rem',
+        marginBottom: '1.4rem',
+        overwrite: true
+      });
+      gsap.fromTo(revealEls, 
+        { yPercent: 100, rotate: 5, opacity: 0 },
+        { 
+          yPercent: 0, 
+          rotate: 0,
+          opacity: 1, 
+          duration: 0.9, 
+          stagger: 0.08, 
+          ease: 'power4.out', 
+          delay: 0.1,
+          overwrite: true
+        }
+      );
+    } else {
+      gsap.to(containerRef.current, {
+        height: 0,
+        opacity: 0,
+        duration: 0.4,
+        ease: 'power4.in',
+        marginTop: 0,
+        marginBottom: 0,
+        overwrite: true,
+        onComplete: () => {
+          gsap.set(containerRef.current, { display: 'none' });
+        }
+      });
+    }
+  }, [isExpanded]);
+
+  return (
+    <div
+      ref={containerRef}
+      className="sm-submenu-container"
+      style={{
+        overflow: 'hidden',
+        height: 0,
+        opacity: 0,
+        display: 'none',
+        paddingLeft: '1.5rem',
+        borderLeft: '1px solid rgba(255,255,255,0.1)'
+      }}
+    >
+      <ul className="sm-submenu-list" style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+        {items.map((sub, i) => {
+          const isSubActive = sub.path.includes('#')
+            ? pathname === sub.path.split('#')[0] && window.location.hash === '#' + sub.path.split('#')[1]
+            : pathname === sub.path;
+
+          return (
+            <li key={i} className="sm-submenu-item">
+              {isRouterLink ? (
+                <RouterLink
+                  to={sub.path}
+                  style={{
+                    textDecoration: 'none',
+                    color: isSubActive ? 'var(--sm-accent, #5227ff)' : 'rgba(255,255,255,0.6)',
+                    fontSize: '1.2rem',
+                    fontWeight: 500,
+                    transition: 'color 0.2s ease',
+                    display: 'block',
+                    overflow: 'hidden'
+                  }}
+                  onClick={() => {
+                    onClose();
+                    // Handle hash scrolling if on the same page
+                    if (sub.path.includes('#')) {
+                      const [path, hash] = sub.path.split('#');
+                      if (pathname === path) {
+                        const id = hash;
+                        const element = document.getElementById(id);
+                        if (element) {
+                          setTimeout(() => {
+                            const offset = 100;
+                            const elementPosition = element.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - offset;
+                            
+                            window.scrollTo({
+                              top: offsetPosition,
+                              behavior: 'smooth'
+                            });
+                          }, 100);
+                        }
+                      }
+                    }
+                  }}
+                  onMouseEnter={(e) => (e.target.style.color = '#fff')}
+                  onMouseLeave={(e) => (e.target.style.color = isSubActive ? 'var(--sm-accent, #5227ff)' : 'rgba(255,255,255,0.6)')}
+                >
+                  <span className="sm-submenu-reveal" style={{ display: 'block', willChange: 'transform' }}>
+                    {sub.title}
+                  </span>
+                </RouterLink>
+              ) : (
+                <Link
+                  to={sub.path.replace('/about#', '')}
+                  spy={true}
+                  smooth={true}
+                  offset={-100}
+                  duration={500}
+                  style={{
+                    textDecoration: 'none',
+                    color: isSubActive ? 'var(--sm-accent, #5227ff)' : 'rgba(255,255,255,0.6)',
+                    fontSize: '1.2rem',
+                    fontWeight: 500,
+                    transition: 'color 0.2s ease',
+                    cursor: 'pointer',
+                    display: 'block',
+                    overflow: 'hidden'
+                  }}
+                  onClick={onClose}
+                  onMouseEnter={(e) => (e.target.style.color = '#fff')}
+                  onMouseLeave={(e) => (e.target.style.color = isSubActive ? 'var(--sm-accent, #5227ff)' : 'rgba(255,255,255,0.6)')}
+                >
+                  <span className="sm-submenu-reveal" style={{ display: 'block', willChange: 'transform' }}>
+                    {sub.title}
+                  </span>
+                </Link>
+              )}
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };
