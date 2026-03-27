@@ -458,7 +458,6 @@ export const StaggeredMenu = ({
                           data-index={idx + 1}
                           style={isActive ? { color: 'var(--sm-accent, #5227ff)' } : undefined}
                           onClick={() => {
-                            closeMenu();
                             if (it.link === '/' && location.pathname === '/') {
                               setTimeout(() => {
                                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -489,7 +488,6 @@ export const StaggeredMenu = ({
                           data-index={idx + 1}
                           style={isActive ? { color: 'var(--sm-accent, #5227ff)' } : undefined}
                           onClick={() => {
-                            closeMenu();
                           }}
                         >
                           <span className="sm-panel-itemLabel">{it.label}</span>
@@ -515,7 +513,7 @@ export const StaggeredMenu = ({
                                   display: 'block',
                                   overflow: 'hidden'
                                 }}
-                                onClick={closeMenu}
+                                onClick={() => {}}
                               >
                                 <span className="sm-panel-itemLabel" style={{ display: 'block' }}>{sub.label}</span>
                               </RouterLink>
