@@ -458,6 +458,7 @@ export const StaggeredMenu = ({
                           data-index={idx + 1}
                           style={isActive ? { color: 'var(--sm-accent, #5227ff)' } : undefined}
                           onClick={() => {
+                            if (window.innerWidth <= 1024) closeMenu();
                             if (it.link === '/' && location.pathname === '/') {
                               setTimeout(() => {
                                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -488,6 +489,7 @@ export const StaggeredMenu = ({
                           data-index={idx + 1}
                           style={isActive ? { color: 'var(--sm-accent, #5227ff)' } : undefined}
                           onClick={() => {
+                            if (window.innerWidth <= 1024) closeMenu();
                           }}
                         >
                           <span className="sm-panel-itemLabel">{it.label}</span>
@@ -502,20 +504,20 @@ export const StaggeredMenu = ({
                             : location.pathname === sub.link;
 
                           return (
-                            <li key={sub.label + sIdx} className="sm-panel-sub-item-wrap">
+                            <li key={sub.label + sIdx} className="sm-panel-itemWrap sm-panel-sub-item-wrap" style={{ padding: '0.2rem 0' }}>
                               <RouterLink
                                 to={sub.link}
-                                className="sm-panel-item"
+                                className="sm-panel-sub-item"
                                 style={{
                                   fontSize: 'clamp(1.2rem, 2vw, 1.5rem)',
-                                  padding: '0.4rem 0',
                                   color: isSubActive ? 'var(--sm-accent, #5227ff)' : 'rgba(255,255,255,0.7)',
-                                  display: 'block',
-                                  overflow: 'hidden'
+                                  display: 'block'
                                 }}
-                                onClick={() => {}}
+                                onClick={() => {
+                                  if (window.innerWidth <= 1024) closeMenu();
+                                }}
                               >
-                                <span className="sm-panel-itemLabel" style={{ display: 'block' }}>{sub.label}</span>
+                                <span className="sm-panel-itemLabel" style={{ display: 'inline-block' }}>{sub.label}</span>
                               </RouterLink>
                             </li>
                           );
