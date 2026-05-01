@@ -5,7 +5,7 @@ import { FiArrowUpRight } from 'react-icons/fi';
 const moreProjectsData = [
   {
     title: "Playlist",
-    link: "https://himanshu952354.github.io/PortFolio/playlist.html",
+    link: "https://himanshu952354.github.io/PortFolio_basic/playlist.html",
     image: "/Portfolio/projects/playlist-thumbnail.png"
   },
   {
