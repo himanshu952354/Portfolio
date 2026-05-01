@@ -5,7 +5,7 @@ import { useRef, useState } from 'react';
 const achievementsData = [
   {
     title: "LeetCode",
-    subtitle: "100+ Questions Solved • 1500+ Contest Rating",
+    subtitle: "150+ Questions Solved • 1600+ Contest Rating",
     link: "https://leetcode.com/u/Dj952354/"
   },
   {

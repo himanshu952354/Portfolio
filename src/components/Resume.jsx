@@ -351,7 +351,7 @@ const Resume = () => {
           <div className="section-divider"></div>
           <ul style={{ listStyleType: 'disc', marginTop: '0.1rem', fontSize: '0.9rem' }}>
             <li>Solved 200+ algorithmic problems across LeetCode, CodeChef, and Codeforces.</li>
-            <li>Achieved ratings of 1500+ (LeetCode), 1300+ (CodeChef), and 1000+ (Codeforces). <a href="#" className="blue-link">Codolio</a></li>
+            <li>Achieved ratings of 1600+ (LeetCode), 1300+ (CodeChef), and 1000+ (Codeforces). <a href="#" className="blue-link">Codolio</a></li>
           </ul>
         </section>
 
