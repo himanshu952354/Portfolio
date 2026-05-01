@@ -16,7 +16,7 @@ const moreProjectsData = [
   {
     title: "Weather App",
     link: "#",
-    image: "https://picsum.photos/seed/weather/600/400"
+    image: "https://weather-app-coral-mu-94.vercel.app/"
   },
   {
     title: "Contact Manager GUI",
