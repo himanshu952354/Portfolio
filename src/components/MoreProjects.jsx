@@ -15,8 +15,8 @@ const moreProjectsData = [
   },
   {
     title: "Weather App",
-    link: "#",
-    image: "https://weather-app-coral-mu-94.vercel.app/"
+    link: "https://weather-app-coral-mu-94.vercel.app/",
+    image: "/Portfolio/projects/weather-thumbnail.png"
   },
   {
     title: "Contact Manager GUI",
